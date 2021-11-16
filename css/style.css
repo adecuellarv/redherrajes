@@ -1461,6 +1461,7 @@ header.side-header {
     margin-bottom: -80px;
     position: relative;
     z-index: 2;
+    text-align: center;
 }
 .header-style-five .main-header.sticky-menu .navbar-wrap .logo {
     margin-bottom: -40px;
@@ -1702,7 +1703,9 @@ header.side-header {
 	transition: all 500ms ease;
 }
 .menu-area .mobile-nav-toggler {
-    position: relative;
+    position: absolute;
+    z-index: 1;
+    right: 60px;
     float: right;
     font-size: 30px;
     cursor: pointer;

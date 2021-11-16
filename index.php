@@ -1,8 +1,4 @@
 <?php get_header('home'); ?>
-
-
-       
-
         <!-- main-area -->
         <main>
 

@@ -121,7 +121,7 @@
                                         <div class="left-border"></div>
                                         <div class="menu-p1 col-12">
                                             <div class="logo d-block d-lg-none">
-                                                <a href="index.html"><img src="<?php bloginfo('template_url'); ?>/img/logo/logo-rh.png" alt="Logo"></a>
+                                                <a href="index.html"><img  class="logo-header-sm" src="<?php bloginfo('template_url'); ?>/img/logo/logo-rh.png" alt="Logo"></a>
                                             </div>
                                             <div class="navbar-wrap main-menu d-none d-lg-flex">
                                                 <ul class="navigation left">
@@ -171,7 +171,7 @@
                                                     <li><a href="about-us.html">Somos</a></li>
                                                 </ul>
                                                 <div class="logo">
-                                                    <a href="index.html"><img src="<?php bloginfo('template_url'); ?>/img/logo/logo-rh.png" alt="Logo"></a>
+                                                    <a href="index.html"><img  class="logo-header" src="<?php bloginfo('template_url'); ?>/img/logo/logo-rh.png" alt="Logo"></a>
                                                 </div>
                                                 <ul class="navigation right">
                                                     <li class="menu-item-has-children"><a href="#">Contacto y Ubicación</a>
