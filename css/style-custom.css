@@ -1,24 +1,29 @@
 .menu-p1 {
   background-color: #e6e6e6;
-  border-radius: 0 0 55px 80px;
-  padding: 0px 45px;
+  border-radius: 0 0 30px 10px;
+  transform: skew(10deg);
+  padding: 25px;
 }
 .menu-p2 {
   background-color: #b3b4b7;
   padding-bottom: 25px;
-  border-radius: 0 0 55px 88px;
+  padding-left: 35px;
+  padding-right: 35px;
+  border-radius: 0 0 50px 15px;
+  transform: skew(20deg);
 }
-.left-border{
-    clip-path: polygon(50% 0%, 82% 34%, 56% 65%, 24% 28%, 0 0);
+.left-border {
+  clip-path: polygon(50% 0%, 82% 34%, 56% 65%, 24% 28%, 0 0);
 }
 .menu-p3 {
   background-color: #008cba;
   padding-bottom: 25px;
-  border-radius: 0 0 55px 88px;
+  border-radius: 0 0 50px 15px;
+  transform: skew(20deg);
 }
-.logo-header{
-    width: 75%;
+.logo-header {
+  width: 75%;
 }
-.logo-header-sm{
-    width: 10%;
+.logo-header-sm {
+  width: 10%;
 }
