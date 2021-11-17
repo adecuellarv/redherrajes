@@ -72,3 +72,7 @@
     text-transform: uppercase;
     color: #e6e6e6;
 }
+.div-mapa-iframe iframe{
+    width: 100% !important;
+    height: 450px !important;
+}

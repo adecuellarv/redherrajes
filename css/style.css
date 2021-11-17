@@ -5972,7 +5972,6 @@ header.side-header {
     max-width: 100%;
 }
 .contact-info-wrap {
-    background-image: url(../img/bg/contact_info_bg.jpg);
     background-position: center;
     background-size: cover;
     position: relative;

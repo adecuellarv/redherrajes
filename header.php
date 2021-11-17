@@ -171,7 +171,7 @@
                                                 <a href="<?php echo home_url(); ?>"><img class="logo-header" src="<?php bloginfo('template_url'); ?>/img/logo/logo-rh.png" alt="Logo"></a>
                                             </div>
                                             <ul class="navigation right">
-                                                <li class="menu-item-has-children"><a href="#">Contacto y Ubicación</a>
+                                                <li class="menu-item-has-children"><a href="<?php echo home_url(); ?>/contacto">Contacto y Ubicación</a>
                                                 </li>
                                                 <li><a href="contact.html">Ayuda</a></li>
                                                 <li class="header-search"><a href="#" data-toggle="modal" data-target="#search-modal"><i class="flaticon-search"></i></a></li>
