@@ -80,5 +80,43 @@
         register_taxonomy( "categoria", array( "productos" ), $args );
     }
     add_action( "init", "categorias", 0 );
+
+     // taxonomy tipo propiedad
+     function components() {
+        $labels = array(
+        "name" => _x( "Componentes", "Taxonomy General Name", "text_domain" ),
+        "singular_name" => _x( "Componentes", "Taxonomy Singular Name", "text_domain" ),
+        "menu_name" => __( "Componentes", "text_domain" ),
+        "all_items" => __( "Todas las Componentes", "text_domain" ),
+        "parent_item" => __( "Componente de producto", "text_domain" ),
+        "parent_item_colon" => __( "Componente de producto:", "text_domain" ),
+        "new_item_name" => __( "Nombre Componente", "text_domain" ),
+        "add_new_item" => __( "Añadir Componente", "text_domain" ),
+        "edit_item" => __( "Editar Componente", "text_domain" ),
+        "update_item" => __( "Actualizar Componente", "text_domain" ),
+        "separate_items_with_commas" => __( "Separa los Componentes con comas", "text_domain" ),
+        "search_items" => __( "Buscar Componente", "text_domain" ),
+        "add_or_remove_items" => __( "Añadir o borrar Componente", "text_domain" ),
+        "choose_from_most_used" => __( "Elegir entre las componentes más utilizadas", "text_domain" ),
+        "not_found" => __( "No se encuentra", "text_domain" ),
+        );
+        $rewrite = array(
+        "slug" => "cat",
+        "with_front" => true,
+        "hierarchical" => true,
+        );
+        $args = array(
+        "labels" => $labels,
+        "hierarchical" => true,
+        "public" => true,
+        "show_ui" => true,
+        "show_admin_column" => true,
+        "show_in_nav_menus" => true,
+        "show_tagcloud" => true,
+        "rewrite" => $rewrite,
+        );
+        register_taxonomy( "components", array( "productos" ), $args );
+    }
+    add_action( "init", "components", 0 );
     
 ?>

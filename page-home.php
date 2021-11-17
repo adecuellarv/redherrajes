@@ -3,6 +3,7 @@ get_header();
 wp_reset_query();
 $slider = get_field('slider_home', $post->ID);
 $somos = get_field('somos', $post->ID);
+$cotizacion = get_field('cotizacion', $post->ID);
 ?>
 <!-- main-area -->
 <main>
@@ -115,116 +116,25 @@ $somos = get_field('somos', $post->ID);
     <!-- new-arrival-area-end -->
 
     <!-- reservation-area -->
-    <section class="reservation-area reservation-bg" data-background="<?php bloginfo('template_url'); ?>/img/bg/res_bg.jpg">
+    <section class="reservation-area reservation-bg" data-background="<?php echo $cotizacion['imagen']; ?>">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-8 col-lg-10">
                     <div class="reservation-wrap text-center">
                         <div class="reservation-title">
                             <div class="icon"><img src="<?php bloginfo('template_url'); ?>/img/icon/res_icon.png" alt=""></div>
-                            <h2 class="title">Reservation<span>!</span></h2>
+                            <h2 class="title"><?php echo $cotizacion['titulo']; ?><span>.</span></h2>
                         </div>
                         <div class="reservation-contact">
-                            <p>Reservation Form Powered by Adara Tables <span>+9 845 854 7458</span> – contact@info.com</p>
+                            <p><span><?php echo $cotizacion['tel']; ?></span> – <?php echo $cotizacion['email']; ?></p>
                         </div>
-                        <div class="reservation-action">
-                            <form action="#">
-                                <div class="reservation-form-top">
-                                    <div class="form-grp">
-                                        <i class="far fa-calendar-alt"></i>
-                                        <input type="text" class="date" placeholder="Select Date">
-                                    </div>
-                                    <div class="form-grp">
-                                        <i class="far fa-clock"></i>
-                                        <input type="text" value="6 : 30 PM" placeholder="Select Time">
-                                    </div>
-                                    <div class="form-grp">
-                                        <i class="far fa-user"></i>
-                                        <input type="text" value="1 Person" placeholder="Select Person">
-                                    </div>
-                                </div>
-                                <button class="btn">shop now</button>
-                            </form>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- reservation-area-end -->
-
-    <!-- blog-area -->
-    <section class="blog-area pt-95 pb-70">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-4 col-lg-6">
-                    <div class="section-title title-style-two text-center mb-50">
-                        <h3 class="title">latest news update</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8">
-                    <div class="blog-post-item blog-post-style3 mb-30">
-                        <div class="blog-post-thumb">
-                            <a href="blog-details.html"><img src="<?php bloginfo('template_url'); ?>/img/blog/b_blog_thumb01.jpg" alt=""></a>
-                        </div>
-                        <div class="blog-post-content">
-                            <h3><a href="blog-details.html">Skills as Technician Solving</a></h3>
-                            <div class="blog-post-meta">
-                                <ul>
-                                    <li><i class="far fa-user"></i>By <a href="#">Tomas Alexa</a></li>
-                                    <li><i class="far fa-calendar-alt"></i> Mar 10, 2021</li>
-                                </ul>
-                            </div>
-                            <p>Fresh bread means it has been baked recently usually within a day) and says nothing about
-                                ingredients went making.</p>
-                            <a href="blog-details.html">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8">
-                    <div class="blog-post-item blog-post-style3 mb-30">
-                        <div class="blog-post-thumb">
-                            <a href="blog-details.html"><img src="<?php bloginfo('template_url'); ?>/img/blog/b_blog_thumb02.jpg" alt=""></a>
-                        </div>
-                        <div class="blog-post-content">
-                            <h3><a href="blog-details.html">Food Particularly Delicious</a></h3>
-                            <div class="blog-post-meta">
-                                <ul>
-                                    <li><i class="far fa-user"></i>By <a href="#">Tomas Alexa</a></li>
-                                    <li><i class="far fa-calendar-alt"></i> Mar 10, 2021</li>
-                                </ul>
-                            </div>
-                            <p>Fresh bread means it has been baked recently usually within a day) and says nothing about
-                                ingredients went making.</p>
-                            <a href="blog-details.html">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8">
-                    <div class="blog-post-item blog-post-style3 mb-30">
-                        <div class="blog-post-thumb">
-                            <a href="blog-details.html"><img src="<?php bloginfo('template_url'); ?>/img/blog/b_blog_thumb03.jpg" alt=""></a>
-                        </div>
-                        <div class="blog-post-content">
-                            <h3><a href="blog-details.html">Make A Boring Wardrobe</a></h3>
-                            <div class="blog-post-meta">
-                                <ul>
-                                    <li><i class="far fa-user"></i>By <a href="#">Tomas Alexa</a></li>
-                                    <li><i class="far fa-calendar-alt"></i> Mar 10, 2021</li>
-                                </ul>
-                            </div>
-                            <p>Fresh bread means it has been baked recently usually within a day) and says nothing about
-                                ingredients went making.</p>
-                            <a href="blog-details.html">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- blog-area-end -->
 
 </main>
 <!-- main-area-end -->

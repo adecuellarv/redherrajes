@@ -122,7 +122,7 @@
                                         </div>
                                         <div class="navbar-wrap main-menu d-none d-lg-flex">
                                             <ul class="navigation left">
-                                                <li class="active menu-item-has-children has--mega--menu"><a href="#">Inicio</a></li>
+                                                <li class="active menu-item-has-children has--mega--menu"><a href="<?php echo home_url(); ?>">Inicio</a></li>
                                                 <li class="has--mega--menu"><a href="#">Productos</a>
                                                     <ul class="mega-menu">
                                                         <li class="mega-menu-wrap">
@@ -165,7 +165,7 @@
                                                         </li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="about-us.html">Somos</a></li>
+                                                <li><a href="<?php echo home_url(); ?>/somos">Somos</a></li>
                                             </ul>
                                             <div class="logo">
                                                 <a href="<?php echo home_url(); ?>"><img class="logo-header" src="<?php bloginfo('template_url'); ?>/img/logo/logo-rh.png" alt="Logo"></a>

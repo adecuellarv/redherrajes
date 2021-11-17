@@ -7,6 +7,20 @@ $imgDestacada = wp_get_attachment_url($thumbID);
 $titulo = get_the_title();
 $slug = basename(get_permalink($postId));
 
+$caracteristicas = get_field('caracteristicas', $postId);
+
+$post_categories = get_the_terms($postId, 'categoria');
+if (!empty($post_categories) && !is_wp_error($post_categories)) {
+    $categories = wp_list_pluck($post_categories, 'name');
+}
+
+$post_components = get_the_terms($postId, 'components');
+if (!empty($post_components) && !is_wp_error($post_components)) {
+    $components = wp_list_pluck($post_components, 'name');
+}
+
+//print_r($caracteristicas);
+
 ?>
 
 <!-- main-area -->
@@ -55,23 +69,55 @@ $slug = basename(get_permalink($postId));
                 </div>
                 <div class="col-lg-5">
                     <div class="shop-details-content">
-                        <a href="#" class="product-cat">Tracker Jacket</a>
+                        <?php if (count($categories) > 0) {
+                            foreach ($categories as &$item) {
+                        ?>
+                                <a href="#" class="product-cat"><?php echo $item; ?></a>
+                        <?php }
+                        } ?>
                         <h3 class="title"><?php echo $titulo; ?></h3>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                        <p class="style-name">SKU : <?php echo $caracteristicas['sku']; ?></p>
+                        <div class="product-details-info">
+                            <span>Embalaje <a href="#"><?php echo $caracteristicas['embalaje']; ?></a></span>
+                            <div class="sidebar-product-size mb-30">
+                                <h4 class="widget-title">Componentes</h4>
+                                <div class="shop-size-list">
+                                    <ul>
+                                        <?php if (count($components) > 0) {
+                                            foreach ($components as &$item) {
+                                        ?>
+                                                <li><a href="#"><?php echo $item; ?></a></li>
+                                        <?php }
+                                        } ?>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="sidebar-product-color">
+                                <h4 class="widget-title">Color</h4>
+                                <div class="">
+                                    <ul>
+                                        <?php foreach ($caracteristicas['colores'] as &$item) { ?>
+                                            <li>
+                                                <div><span><?php echo $item['color']; ?></span></div>
+                                                <img src="<?php echo $item['imagen']; ?>" alt="img-color" style="width: 45px;" />
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="sidebar-product-color" style="margin-top: 35px;">
+                                <h4 class="widget-title">Aperturas</h4>
+                                <div class="">
+                                    <img src="<?php echo $caracteristicas['aperturas']; ?>" alt="caracteristicas" style="width: 50%;"/>
+                                </div>
+                            </div>
                         </div>
-                        <p class="style-name">Style Name : TN-WI56-OMTJ-CqTKJ-09#</p>
-                        
                         <div class="perched-info">
-                            
-                            <a href="#" class="btn">Cotizar</a>
+
                             <div class="wishlist-compare">
                                 <ul>
                                     <li><a href="#"><i class="far fa-heart"></i> Add to Wishlist</a></li>
+                                    <li><a href="#"><i class="fas fa-retweet"></i> Add to Compare List</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -95,52 +141,29 @@ $slug = basename(get_permalink($postId));
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description Guide</a>
                             </li>
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews</a>
-                            </li>
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
                                 <div class="product-desc-title mb-30">
-                                    <h4 class="title">Additional information :</h4>
+                                    <h4 class="title">Compatible :</h4>
                                 </div>
                                 <p>
-                                    <?php echo the_content(); ?>
+                                    <?php echo $caracteristicas['compatible']; ?>
                                 </p>
-                            </div>
-                            <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+
                                 <div class="product-desc-title mb-30">
-                                    <h4 class="title">Reviews (0) :</h4>
+                                    <h4 class="title">Aplicaciones :</h4>
                                 </div>
-                                <p>Your email address will not be published. Required fields are marked</p>
-                                <p class="adara-review-title">Be the first to review “Adara”</p>
-                                <div class="review-rating">
-                                    <span>Your rating *</span>
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
+                                <p>
+                                    <?php echo $caracteristicas['aplicaciones']; ?>
+                                </p>
+
+                                <div class="product-desc-title mb-30">
+                                    <h4 class="title">Características :</h4>
                                 </div>
-                                <form action="#" class="comment-form review-form">
-                                    <span>Your review *</span>
-                                    <textarea name="message" id="comment-message" placeholder="Your Comment"></textarea>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <input type="text" placeholder="Your Name*">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <input type="email" placeholder="Your Email*">
-                                        </div>
-                                    </div>
-                                    <div class="comment-check-box">
-                                        <input type="checkbox" id="comment-check">
-                                        <label for="comment-check">Save my name and email in this browser for the next time I comment.</label>
-                                    </div>
-                                    <button class="btn">Submit</button>
-                                </form>
+                                <p>
+                                    <?php echo $caracteristicas['caracteristicas']; ?>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -150,81 +173,26 @@ $slug = basename(get_permalink($postId));
                 <div class="row">
                     <div class="col-12">
                         <div class="related-product-title">
-                            <h4 class="title">You May Also Like...</h4>
+                            <h4 class="title">Productos relacionados</h4>
                         </div>
                     </div>
                 </div>
                 <div class="row related-product-active">
-                    <div class="col-xl-3">
-                        <div class="new-arrival-item text-center">
-                            <div class="thumb mb-25">
-                                <a href="shop-details.html"><img src="img/product/n_arrival_product01.jpg" alt=""></a>
-                                <div class="product-overlay-action">
-                                    <ul>
-                                        <li><a href="cart.html"><i class="far fa-heart"></i></a></li>
-                                        <li><a href="shop-details.html"><i class="far fa-eye"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <h5><a href="shop-details.html">Bomber in Cotton</a></h5>
-                                <span class="price">$37.00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3">
-                        <div class="new-arrival-item text-center">
-                            <div class="thumb mb-25">
-                                <div class="discount-tag">- 20%</div>
-                                <a href="shop-details.html"><img src="img/product/n_arrival_product02.jpg" alt=""></a>
-                                <div class="product-overlay-action">
-                                    <ul>
-                                        <li><a href="cart.html"><i class="far fa-heart"></i></a></li>
-                                        <li><a href="shop-details.html"><i class="far fa-eye"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <h5><a href="shop-details.html">Travelling Bags</a></h5>
-                                <span class="price">$25.00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3">
-                        <div class="new-arrival-item text-center">
-                            <div class="thumb mb-25">
-                                <a href="shop-details.html"><img src="img/product/n_arrival_product03.jpg" alt=""></a>
-                                <div class="product-overlay-action">
-                                    <ul>
-                                        <li><a href="cart.html"><i class="far fa-heart"></i></a></li>
-                                        <li><a href="shop-details.html"><i class="far fa-eye"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <h5><a href="shop-details.html">Exclusive Handbags</a></h5>
-                                <span class="price">$19.50</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3">
-                        <div class="new-arrival-item text-center">
-                            <div class="thumb mb-25">
-                                <div class="discount-tag new">New</div>
-                                <a href="shop-details.html"><img src="img/product/n_arrival_product04.jpg" alt=""></a>
-                                <div class="product-overlay-action">
-                                    <ul>
-                                        <li><a href="cart.html"><i class="far fa-heart"></i></a></li>
-                                        <li><a href="shop-details.html"><i class="far fa-eye"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <h5><a href="shop-details.html">Women Shoes</a></h5>
-                                <span class="price">$12.90</span>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                    $serv_slid = new WP_Query('post_type=productos&meta_key=aparece_en_home&meta_value=1');
+                    if (have_posts()) : while ($serv_slid->have_posts()) : $serv_slid->the_post();
+                            //$img_slider = get_field('img_slider',get_the_ID());
+                            global $post;
+                            $thumbID = get_post_thumbnail_id($post->ID);
+                            $imgDestacada = wp_get_attachment_url($thumbID);
+                            $titulo = get_the_title();
+                            $slug = basename(get_permalink($postId));
+                    ?>
+                            
+                    <?php
+                        endwhile;
+                    endif;
+                    ?>
                 </div>
             </div>
         </div>
