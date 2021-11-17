@@ -65,3 +65,10 @@
 .mobile-nav-toggler{
     padding-top: 20px !important;
 }
+.breadcrumb-content{
+    padding-top: 30px;
+}
+.breadcrumb-content h2{
+    text-transform: uppercase;
+    color: #e6e6e6;
+}

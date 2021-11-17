@@ -11,7 +11,7 @@ $somos = get_field('somos', $post->ID);
     <section class="h9-slider-area">
         <div class="h9-slider-active">
             <?php foreach ($slider as &$item) { ?>
-                <div class="h9-slider-item" data-background="<?php bloginfo('template_url'); ?>/img/slider/h9_slider_bg.jpg">
+                <div class="h9-slider-item" style="background: linear-gradient(to right, rgba(191, 191, 191, 0.6), rgba(149, 149, 149, 0.6)) 100% 100% / cover no-repeat, url(<?php bloginfo('template_url'); ?>/img/slider/white-bg.jpeg); background-position: 100% 100%; background-repeat: no-repeat; background-size:cover;">
                     <div class="container">
                         <div class="row align-items-center justify-content-center">
                             <div class="col-lg-6">
@@ -21,10 +21,10 @@ $somos = get_field('somos', $post->ID);
                             </div>
                             <div class="col-lg-6">
                                 <div class="h7-slider-content">
-                                    <span class="sub-title" data-animation-in="fadeInUp" data-delay-in=".4" data-duration-in="1.5">new arrival</span>
+                                    <span class="sub-title" data-animation-in="fadeInUp" data-delay-in=".4" data-duration-in="1.5"><?php echo $item['elementos']['tag']; ?></span>
                                     <h2 class="title" data-animation-in="fadeInUp" data-delay-in=".6" data-duration-in="1.5"><?php echo $item['elementos']['titulo']; ?></h2>
                                     <p data-animation-in="fadeInUp" data-delay-in=".8" data-duration-in="1.5"><?php echo $item['elementos']['descripcion']; ?></p>
-                                    <a href="shop-sidebar.html" class="btn" data-animation-in="fadeInUp" data-delay-in="1.2" data-duration-in="1.5">Shop now</a>
+                                    <a href="<?php echo $item['elementos']['link']; ?>" class="btn" data-animation-in="fadeInUp" data-delay-in="1.2" data-duration-in="1.5">Ver más</a>
                                 </div>
                             </div>
                         </div>
@@ -44,12 +44,18 @@ $somos = get_field('somos', $post->ID);
                 <div class="col-lg-6 col-md-9">
                     <div class="h9-choose-content">
                         <div class="cat-section-title mb-40">
-                            <span class="sub-title">CHOOSE A TYPE</span>
+                            <span class="sub-title"><?php echo $somos['tag']; ?></span>
                             <h2 class="title"><?php echo $somos['titulo']; ?></h2>
                         </div>
                         <div class="h9-choose-list">
                             <p><?php echo $somos['descripcion']; ?></p>
-
+                            <a 
+                                data-animation-in="fadeInUp" 
+                                data-delay-in="1.2" 
+                                data-duration-in="1.5" 
+                                class="btn"
+                                href="<?php echo home_url(); ?>/somos"
+                            >Ver más</a>
                         </div>
                     </div>
                 </div>
