@@ -94,73 +94,96 @@
         <div id="sticky-header" class="main-header menu-area">
             <div class="container custom-container-two">
                 <div class="row">
-                    <div class="col-12">
-                        <div class="mobile-nav-toggler"><i class="fas fa-bars"></i></div>
-                        <div class="menu-wrap">
-                            <nav class="menu-nav show">
-                                <div class="menu-p3 col-12"> </div>
-                                <div class="menu-p2 col-12"></div>
-                                <div class="menu-p1 col-12"></div>
-                                <div class="logo d-block d-lg-none">
-                                    <a href="<?php echo home_url(); ?>"><img class="logo-header-sm" src="<?php bloginfo('template_url'); ?>/img/logo/logo-rh.png" alt="Logo"></a>
+                    <div class="col-12" style="padding: 0px;">
+                        <div class="menu-mobile">
+                            <div class="menumb-3">
+                                <div class="menumb-2">
+                                    <div class="menumb-1">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <img src="<?php bloginfo('template_url'); ?>/img/logo/logo-rh-mb.png" alt="logo-mb" title="logo-mb" />
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="mobile-nav-toggler"><i class="fas fa-bars"></i></div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
                                 </div>
-                                <div class="navbar-wrap main-menu d-none d-lg-flex">
-                                    <ul class="navigation left">
-                                        <li class="active menu-item-has-children has--mega--menu"><a href="#">Inicio</a></li>
-                                        <li class="has--mega--menu"><a href="#">Productos</a>
-                                            <ul class="mega-menu">
-                                                <li class="mega-menu-wrap">
-                                                    <ul class="mega-menu-col">
-                                                        <li class="mega-title"><a href="shop.html">SHOP PAGES</a></li>
-                                                        <li><a href="shop-sidebar.html">Right Sidebar</a></li>
-                                                        <li><a href="shop-sidebar.html">Left Sidebar</a></li>
-                                                        <li><a href="shop.html">Hidden sidebar</a></li>
-                                                        <li><a href="shop.html">Filters area</a></li>
-                                                        <li><a href="shop-details.html">Shop Details</a></li>
-                                                        <li><a href="cart.html">Cart Page</a></li>
-                                                        <li><a href="checkout.html">Checkout Page</a></li>
-                                                    </ul>
-                                                    <ul class="mega-menu-col">
-                                                        <li class="mega-title"><a href="#">FEATURES</a></li>
-                                                        <li><a href="shop-sidebar.html">Variable Product</a></li>
-                                                        <li><a href="shop-sidebar.html">External Product</a></li>
-                                                        <li><a href="shop-sidebar.html">Other Shop Pages</a></li>
-                                                        <li><a href="shop-sidebar.html">Categories</a></li>
-                                                        <li><a href="shop-sidebar.html">Collection</a></li>
-                                                        <li><a href="shop-sidebar.html">LookBook</a></li>
-                                                        <li><a href="cart.html">Shopping Cart</a></li>
-                                                    </ul>
-                                                    <ul class="mega-menu-col sub-cat-post">
-                                                        <li>
-                                                            <a href="shop-sidebar.html">
-                                                                <img src="<?php bloginfo('template_url'); ?>/img/product/sub_menu_img01.jpg" alt="">
-                                                                <span class="btn">Man Shop</span>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                    <ul class="mega-menu-col sub-cat-post">
-                                                        <li>
-                                                            <a href="shop-sidebar.html">
-                                                                <img src="<?php bloginfo('template_url'); ?>/img/product/sub_menu_img02.jpg" alt="">
-                                                                <span class="btn">Women’s Shop</span>
-                                                            </a>
+                            </div>
+                        </div>
+                        <div class="menu-wrap menu-desktop">
+                            <nav class="menu-nav show">
+                                <div class="col-12 container-menudivs">
+                                    <div class="main-menu-desk">
+                                        <div class="logo d-block d-lg-none">
+                                            <a href="<?php echo home_url(); ?>"><img class="logo-header-sm" src="<?php bloginfo('template_url'); ?>/img/logo/logo-rh.png" alt="Logo"></a>
+                                        </div>
+                                        <div class="navbar-wrap main-menu d-none d-lg-flex">
+                                            <ul class="navigation left">
+                                                <li class="active menu-item-has-children has--mega--menu"><a href="#">Inicio</a></li>
+                                                <li class="has--mega--menu"><a href="#">Productos</a>
+                                                    <ul class="mega-menu">
+                                                        <li class="mega-menu-wrap">
+                                                            <ul class="mega-menu-col">
+                                                                <li class="mega-title"><a href="shop.html">SHOP PAGES</a></li>
+                                                                <li><a href="shop-sidebar.html">Right Sidebar</a></li>
+                                                                <li><a href="shop-sidebar.html">Left Sidebar</a></li>
+                                                                <li><a href="shop.html">Hidden sidebar</a></li>
+                                                                <li><a href="shop.html">Filters area</a></li>
+                                                                <li><a href="shop-details.html">Shop Details</a></li>
+                                                                <li><a href="cart.html">Cart Page</a></li>
+                                                                <li><a href="checkout.html">Checkout Page</a></li>
+                                                            </ul>
+                                                            <ul class="mega-menu-col">
+                                                                <li class="mega-title"><a href="#">FEATURES</a></li>
+                                                                <li><a href="shop-sidebar.html">Variable Product</a></li>
+                                                                <li><a href="shop-sidebar.html">External Product</a></li>
+                                                                <li><a href="shop-sidebar.html">Other Shop Pages</a></li>
+                                                                <li><a href="shop-sidebar.html">Categories</a></li>
+                                                                <li><a href="shop-sidebar.html">Collection</a></li>
+                                                                <li><a href="shop-sidebar.html">LookBook</a></li>
+                                                                <li><a href="cart.html">Shopping Cart</a></li>
+                                                            </ul>
+                                                            <ul class="mega-menu-col sub-cat-post">
+                                                                <li>
+                                                                    <a href="shop-sidebar.html">
+                                                                        <img src="<?php bloginfo('template_url'); ?>/img/product/sub_menu_img01.jpg" alt="">
+                                                                        <span class="btn">Man Shop</span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="mega-menu-col sub-cat-post">
+                                                                <li>
+                                                                    <a href="shop-sidebar.html">
+                                                                        <img src="<?php bloginfo('template_url'); ?>/img/product/sub_menu_img02.jpg" alt="">
+                                                                        <span class="btn">Women’s Shop</span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
                                                         </li>
                                                     </ul>
                                                 </li>
+                                                <li><a href="about-us.html">Somos</a></li>
                                             </ul>
-                                        </li>
-                                        <li><a href="about-us.html">Somos</a></li>
-                                    </ul>
-                                    <div class="logo">
-                                        <a href="<?php echo home_url(); ?>"><img class="logo-header" src="<?php bloginfo('template_url'); ?>/img/logo/logo-rh.png" alt="Logo"></a>
+                                            <div class="logo">
+                                                <a href="<?php echo home_url(); ?>"><img class="logo-header" src="<?php bloginfo('template_url'); ?>/img/logo/logo-rh.png" alt="Logo"></a>
+                                            </div>
+                                            <ul class="navigation right">
+                                                <li class="menu-item-has-children"><a href="#">Contacto y Ubicación</a>
+                                                </li>
+                                                <li><a href="contact.html">Ayuda</a></li>
+                                                <li class="header-search"><a href="#" data-toggle="modal" data-target="#search-modal"><i class="flaticon-search"></i></a></li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <ul class="navigation right">
-                                        <li class="menu-item-has-children"><a href="#">Contacto y Ubicación</a>
-                                        </li>
-                                        <li><a href="contact.html">Ayuda</a></li>
-                                        <li class="header-search"><a href="#" data-toggle="modal" data-target="#search-modal"><i class="flaticon-search"></i></a></li>
-                                    </ul>
+                                    <div class="menu-p1"></div>
+                                    <div class="menu-p2"></div>
+                                    <div class="menu-p3"> </div>
+
                                 </div>
+
 
                             </nav>
                         </div>
@@ -168,7 +191,7 @@
                         <div class="mobile-menu">
                             <div class="close-btn"><i class="flaticon-targeting-cross"></i></div>
                             <nav class="menu-box">
-                                <div class="nav-logo"><a href="<?php echo home_url(); ?>"><img src="<?php bloginfo('template_url'); ?>/img/logo/logo.png" alt="" title=""></a>
+                                <div class="nav-logo"><a href="<?php echo home_url(); ?>"><img src="<?php bloginfo('template_url'); ?>/img/logo/logo.png" alt="logo" title="logo"></a>
                                 </div>
                                 <div class="menu-outer">
                                     <ul class="navigation">

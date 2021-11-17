@@ -1331,7 +1331,7 @@ header.side-header {
     top: 50%;
     transform: translate(-50%, -50%);
     height: 1px;
-    background: #ff5400;
+    background: #008cba;
     width: 0;
     -webkit-transition: all 0.3s ease-out 0s;
     -moz-transition: all 0.3s ease-out 0s;
@@ -1424,9 +1424,9 @@ header.side-header {
 }
 .side-header-social ul li a:hover,
 .cosmetics-item .content .action ul li a:hover {
-    background: #ff5400;
+    background: #008cba;
     color: #fff;
-    border-color: #ff5400;
+    border-color: #008cba;
 }
 .header-style-five .navbar-wrap > ul > li > a {
     font-size: 14px;
@@ -1899,7 +1899,7 @@ header.side-header {
     bottom: 0;
     width: 20px;
     height: 3px;
-    background: #ff5400;
+    background: #008cba;
 }
 .sidebar-off-canvas .contact-info ul li {
     font-size: 14px;
@@ -2187,7 +2187,7 @@ header.side-header {
     height: 30px;
     text-align: center;
     line-height: 30px;
-    background: #ff5400;
+    background: #008cba;
     color: #fff;
     font-size: 13px;
     z-index: 2;
@@ -2317,7 +2317,7 @@ header.side-header {
     bottom: 0;
     height: 2px;
     width: 100%;
-    background: #ff5400;
+    background: #008cba;
 }
 .h7-slider-content .title {
     font-size: 80px;
@@ -2562,8 +2562,8 @@ header.side-header {
     border-radius: 50%;
 }
 .split-slider-active .slick-dots li.slick-active button {
-    background: #ff5400;
-    border-color: #ff5400;
+    background: #008cba;
+    border-color: #008cba;
 }
 
 /* 6. Category-banner */
@@ -2813,7 +2813,7 @@ header.side-header {
     display: block;
     font-size: 12px;
     text-transform: uppercase;
-    color: #ff5400;
+    color: #008cba;
     font-weight: 600;
     font-family: 'Jost', sans-serif;
     line-height: 1;
@@ -2944,7 +2944,7 @@ header.side-header {
     min-height: 53px;
 }
 .checkout-form .form-grp label span {
-	color: #ff5400;
+	color: #008cba;
 }
 .checkout-form .form-grp label small {
     font-size: 13px;
@@ -3384,7 +3384,7 @@ header.side-header {
     background: #c7daeb;
 }
 .shop-color-list ul li:nth-child(3) {
-    background: #ff5400;
+    background: #008cba;
 }
 .shop-color-list ul li:nth-child(4) {
     background: #312620;
@@ -3567,7 +3567,7 @@ header.side-header {
     font-size: 12px;
     letter-spacing: -1px;
     line-height: 1;
-    color: #ff5400;
+    color: #008cba;
     margin-bottom: 10px;
 }
 .shop-details-content .style-name {
@@ -3860,7 +3860,7 @@ header.side-header {
     margin-top: 20px;
 }
 .cart-coupon form button {
-    background: #ff5400;
+    background: #008cba;
     color: #fff;
     box-shadow: none;
     margin-top: 20px;
@@ -3976,7 +3976,7 @@ header.side-header {
     background: #fbbd27;
 }
 .ex-services-item.orange {
-    background: #ff5400;
+    background: #008cba;
 }
 .ex-services-item.orange .content > i,
 .ex-services-item.orange .content p,
@@ -4017,7 +4017,7 @@ header.side-header {
     bottom: 0;
     width: 100%;
     height: 3px;
-    background: #ff5400;
+    background: #008cba;
 	transition: .3s linear;
 	opacity: 0;
 }
@@ -4048,7 +4048,7 @@ header.side-header {
     position: absolute;
     left: 12px;
     top: 20px;
-    background: #ff5400;
+    background: #008cba;
     color: #fff;
     font-weight: 500;
     padding: 4px 10px;
@@ -4136,7 +4136,7 @@ header.side-header {
 	background: #c7daeb;
 }
 .features-product-bottom .color-option > span.orange {
-	background: #ff5400;
+	background: #008cba;
 }
 .features-product-bottom .limited-time {
     width: 60%;
@@ -4266,7 +4266,7 @@ header.side-header {
     box-shadow: 0px 3px 3px 0px rgba(35, 35, 35, 0.08);
 }
 .progress-list .progress-bar {
-    background-color: #ff5400;
+    background-color: #008cba;
     border-radius: 8px;
 }
 .progress-list .progress-item:nth-child(2) .progress-bar,
@@ -4292,7 +4292,7 @@ header.side-header {
     top: 0;
     right: 0;
     color: #fff;
-    background-color: #ff5400;
+    background-color: #008cba;
     padding: 6px 10px;
     line-height: 1;
     border-radius: 5px 5px 13px 5px;
@@ -4408,7 +4408,7 @@ header.side-header {
 .cosmetics-item .content .stock-info {
     font-size: 12px;
     font-weight: 500;
-    color: #ff5400;
+    color: #008cba;
     font-family: 'Jost', sans-serif;
     position: absolute;
     right: 30px;
@@ -4421,7 +4421,7 @@ header.side-header {
     color: #b5b4b4;
     letter-spacing: -.5px;
     margin-bottom: 5px;
-    color: #ff5400;
+    color: #008cba;
 }
 .cosmetics-item .content .title {
     font-size: 16px;
@@ -4510,7 +4510,7 @@ header.side-header {
     top: 0;
     width: 100%;
     height: 100%;
-    background: #ff5400;
+    background: #008cba;
     opacity: .83;
     z-index: -1;
 }
@@ -4611,7 +4611,7 @@ header.side-header {
     transform: translateY(-50%);
     width: 5px;
     height: 25px;
-    background: #ff5400;
+    background: #008cba;
 }
 .shoes-banner-content h2 {
     color: #fff;
@@ -4645,8 +4645,8 @@ header.side-header {
     padding: 0;
 }
 .shoes-banner-active .slick-dots li.slick-active button {
-    border-color: #ff5400;
-    background: #ff5400;
+    border-color: #008cba;
+    background: #008cba;
 }
 .discount-bg-three {
     background-position: center;
@@ -4687,7 +4687,7 @@ header.side-header {
 .discount-bg-three .voucher-code span {
     display: block;
     font-size: 16px;
-    color: #ff5400;
+    color: #008cba;
     font-weight: 600;
     font-family: 'Jost', sans-serif;
 }
@@ -4772,7 +4772,7 @@ header.side-header {
     margin-right: 5px;
 }
 .h9-arrival-product .new-arrival-item .thumb .discount-tag {
-    background: #ff5400;
+    background: #008cba;
 }
 
 /* 13. Trending */
@@ -5001,7 +5001,7 @@ header.side-header {
     transform: translateY(-50%);
     width: 6px;
     height: 6px;
-    background: #ff5400;
+    background: #008cba;
     border-radius: 50%;
 }
 .newsletter-title .sub-title::after {
@@ -5043,7 +5043,7 @@ header.side-header {
 	margin-left: 5px;
 }
 .newsletter-style-two .newsletter-title .title {
-    color: #ff5400;
+    color: #008cba;
 }
 .newsletter-style-two .newsletter-form input,
 .newsletter-style-two .newsletter-form input::placeholder,
@@ -5148,7 +5148,7 @@ header.side-header {
     transform: translateY(-50%);
     left: 30px;
     font-size: 16px;
-    color: #ff5400;
+    color: #008cba;
 }
 .reservation-form-top .form-grp::before {
     content: "";
@@ -5163,7 +5163,7 @@ header.side-header {
 }
 .reservation-action form .btn {
     padding: 19px 35px;
-    background: #ff5400;
+    background: #008cba;
     color: #fff;
 }
 
@@ -5291,7 +5291,7 @@ header.side-header {
     display: inline-block;
 }
 .blog-post-style2 .blog-post-content > a span {
-    color: #ff5400;
+    color: #008cba;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     margin-left: 4px;
@@ -5327,7 +5327,7 @@ header.side-header {
     text-transform: uppercase;
     font-size: 12px;
     font-weight: 500;
-    color: #ff5400;
+    color: #008cba;
     margin-bottom: 10px;
     line-height: 1;
 }
@@ -5424,7 +5424,7 @@ header.side-header {
 }
 .sidebar-about .content a {
     display: inline-block;
-    color: #ff5400;
+    color: #008cba;
     font-family: 'Jost', sans-serif;
     font-weight: 600;
 }
@@ -5510,7 +5510,7 @@ header.side-header {
 }
 .blog-sidebar-tag ul li a:hover {
 	color: #fff;
-	background: #ff5400;
+	background: #008cba;
 }
 .breadcrumb-content .title {
     font-size: 36px;
@@ -5657,10 +5657,10 @@ header.side-header {
     background: #fff;
     border-radius: 50%;
     font-size: 12px;
-    color: #ff5400;
+    color: #008cba;
 }
 .post-avatar-social ul li a:hover {
-	background: #ff5400;
+	background: #008cba;
 	color: #fff;
 }
 .blog-comment ul li {
@@ -5871,13 +5871,13 @@ header.side-header {
 }
 .pagination-wrap ul li a:hover,
 .pagination-wrap ul li.active a {
-	background: #ff5400;
+	background: #008cba;
 	color: #fff;
 }
 .pagination-wrap ul li.prev a:hover,
 .pagination-wrap ul li.next a:hover {
 	background: transparent;
-	color: #ff5400;
+	color: #008cba;
 }
 
 /* 19. Instagram */
@@ -5962,7 +5962,7 @@ header.side-header {
     min-width: 175px;
     box-shadow: none;
     color: #fff;
-    background: #ff5400;
+    background: #008cba;
 }
 .contact-sidebar {
     margin-left: 30px;
@@ -5985,7 +5985,7 @@ header.side-header {
     top: 0;
     width: 100%;
     height: 100%;
-    background: #ff5400;
+    background: #008cba;
     opacity: .95;
     z-index: -1;
 }
@@ -6013,7 +6013,7 @@ header.side-header {
     z-index: 1;
     border-radius: 50%;
     font-size: 22px;
-    color: #ff5400;
+    color: #008cba;
 }
 .contact-info-wrap .icon::before {
     content: "";
@@ -6226,7 +6226,7 @@ header.side-header {
   left: 0;
   top: 0;
   width: 100%;
-  z-index: 9000;
+  z-index: 99999;
 }
 
 .ctn-preloader .animation-preloader {
@@ -6238,7 +6238,7 @@ header.side-header {
   animation: spinner 1s infinite linear;
   border-radius: 50%;
   border: 3px solid rgba(0, 0, 0, 0.2);
-  border-top-color: #ff5400;
+  border-top-color: #008cba;
   height: 150px;
   margin: 0 auto 0 auto;
   width: 150px;

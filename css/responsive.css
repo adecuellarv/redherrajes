@@ -861,6 +861,12 @@
   .header-style-four .transparent-header.sticky-menu {
     padding: 25px 0;
   }
+  .menu-desktop{
+      display: none;
+  }
+  .menu-mobile{
+      display: block !important;
+  }
 }
 
 /* Medium devices (tablets, 768px and up) */
