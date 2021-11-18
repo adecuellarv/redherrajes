@@ -3335,8 +3335,8 @@ header.side-header {
 }
 .sidebar-brand-list ul li a:hover::before,
 .shop-size-list ul li a:hover {
-    background: #ff6000;
-    border-color: #ff6000;
+    background: #008cba;
+    border-color: #008cba;
 }
 .sidebar-brand-list ul li a i {
     font-size: 10px;
@@ -6064,7 +6064,7 @@ header.side-header {
     right: 0;
     bottom: -1px;
     width: 150px;
-    background: #bc3e00;
+    background: #008cba;
     height: 1px;
     margin: 0 auto;
     z-index: 1;

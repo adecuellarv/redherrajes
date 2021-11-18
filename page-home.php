@@ -92,8 +92,7 @@ $cotizacion = get_field('cotizacion', $post->ID);
                                     <a href="productos/<?php echo $slug; ?>" ><img src="<?php echo $imgDestacada; ?>" alt="<?php echo $titulo; ?>"></a>
                                     <div class="product-overlay-action">
                                         <ul>
-                                            <li><a href="cart.html"><i class="far fa-heart"></i></a></li>
-                                            <li><a href="shop-sidebar.html"><i class="far fa-eye"></i></a></li>
+                                            <li><a href="productos/<?php echo $slug; ?>"><i class="far fa-eye"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>

@@ -5,7 +5,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="footer-logo">
-                                <a href="index.html"><img src="img/logo/w_logo.png" alt=""></a>
+                                <a href="index.html"><img src="<?php bloginfo('template_url'); ?>/img/logo/logo-rh-mb.png" alt="logo-footer"></a>
                             </div>
                         </div>
                     </div>
@@ -16,13 +16,8 @@
                             <div class="footer-link-wrap">
                                 <nav class="menu-links">
                                     <ul>
-                                        <li><a href="about-us.html">About us</a></li>
-                                        <li><a href="shop-sidebar.html">Store</a></li>
-                                        <li><a href="#">Locations</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                        <li><a href="contact.html">Support</a></li>
-                                        <li><a href="#">Policy</a></li>
-                                        <li><a href="#">Faqs</a></li>
+                                        <li><a href="<?php echo home_url(); ?>/terminos-y-condiciones">Terminos y condiciones</a></li>
+                                        <li><a href="<?php echo home_url(); ?>/terminos-y-condiciones">Politicas de privaciodad</a></li>
                                     </ul>
                                 </nav>
                                 <div class="footer-social">
@@ -43,12 +38,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-6">
                             <div class="copyright-text">
-                                <p>&copy; 2021 <a href="index.html">adara</a>. All Rights Reserved | Ph (+09) 456 457869</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="pay-method-img">
-                                <img src="img/images/payment_method_img.png" alt="">
+                                <p>&copy; 2021 <a href="<?php echo home_url(); ?>">Red de Herrajes</a>. Todos los derechos reservados</p>
                             </div>
                         </div>
                     </div>

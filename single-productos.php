@@ -108,23 +108,14 @@ if (!empty($post_components) && !is_wp_error($post_components)) {
                             <div class="sidebar-product-color" style="margin-top: 35px;">
                                 <h4 class="widget-title">Aperturas</h4>
                                 <div class="">
-                                    <img src="<?php echo $caracteristicas['aperturas']; ?>" alt="caracteristicas" style="width: 50%;"/>
+                                    <img src="<?php echo $caracteristicas['aperturas']; ?>" alt="caracteristicas" style="width: 50%;" />
                                 </div>
-                            </div>
-                        </div>
-                        <div class="perched-info">
-
-                            <div class="wishlist-compare">
-                                <ul>
-                                    <li><a href="#"><i class="far fa-heart"></i> Add to Wishlist</a></li>
-                                    <li><a href="#"><i class="fas fa-retweet"></i> Add to Compare List</a></li>
-                                </ul>
                             </div>
                         </div>
                         <div class="product-details-share">
                             <ul>
-                                <li>Share :</li>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li>Compartir:</li>
+                                <li><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo home_url(); ?>/productos/<?php echo $slug; ?>" target="_black"><i class="fab fa-facebook-f"></i></a></li>
                                 <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                                 <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
@@ -137,34 +128,27 @@ if (!empty($post_components) && !is_wp_error($post_components)) {
             <div class="row">
                 <div class="col-12">
                     <div class="product-desc-wrap">
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description Guide</a>
-                            </li>
-                        </ul>
-                        <div class="tab-content">
-                            <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
-                                <div class="product-desc-title mb-30">
-                                    <h4 class="title">Compatible :</h4>
-                                </div>
-                                <p>
-                                    <?php echo $caracteristicas['compatible']; ?>
-                                </p>
-
-                                <div class="product-desc-title mb-30">
-                                    <h4 class="title">Aplicaciones :</h4>
-                                </div>
-                                <p>
-                                    <?php echo $caracteristicas['aplicaciones']; ?>
-                                </p>
-
-                                <div class="product-desc-title mb-30">
-                                    <h4 class="title">Características :</h4>
-                                </div>
-                                <p>
-                                    <?php echo $caracteristicas['caracteristicas']; ?>
-                                </p>
+                        <div style="background-color: #eee; padding: 20px;">
+                            <div class="product-desc-title mb-30">
+                                <h4 class="title">Compatible :</h4>
                             </div>
+                            <p>
+                                <?php echo $caracteristicas['compatible']; ?>
+                            </p>
+
+                            <div class="product-desc-title mb-30">
+                                <h4 class="title">Aplicaciones :</h4>
+                            </div>
+                            <p>
+                                <?php echo $caracteristicas['aplicaciones']; ?>
+                            </p>
+
+                            <div class="product-desc-title mb-30">
+                                <h4 class="title">Características :</h4>
+                            </div>
+                            <p>
+                                <?php echo $caracteristicas['caracteristicas']; ?>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -188,7 +172,7 @@ if (!empty($post_components) && !is_wp_error($post_components)) {
                             $titulo = get_the_title();
                             $slug = basename(get_permalink($postId));
                     ?>
-                            
+
                     <?php
                         endwhile;
                     endif;
