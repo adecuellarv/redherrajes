@@ -123,47 +123,7 @@
                                         <div class="navbar-wrap main-menu d-none d-lg-flex">
                                             <ul class="navigation left">
                                                 <li class="active menu-item-has-children has--mega--menu"><a href="<?php echo home_url(); ?>">Inicio</a></li>
-                                                <li class="has--mega--menu"><a href="#">Productos</a>
-                                                    <ul class="mega-menu">
-                                                        <li class="mega-menu-wrap">
-                                                            <ul class="mega-menu-col">
-                                                                <li class="mega-title"><a href="shop.html">SHOP PAGES</a></li>
-                                                                <li><a href="shop-sidebar.html">Right Sidebar</a></li>
-                                                                <li><a href="shop-sidebar.html">Left Sidebar</a></li>
-                                                                <li><a href="shop.html">Hidden sidebar</a></li>
-                                                                <li><a href="shop.html">Filters area</a></li>
-                                                                <li><a href="shop-details.html">Shop Details</a></li>
-                                                                <li><a href="cart.html">Cart Page</a></li>
-                                                                <li><a href="checkout.html">Checkout Page</a></li>
-                                                            </ul>
-                                                            <ul class="mega-menu-col">
-                                                                <li class="mega-title"><a href="#">FEATURES</a></li>
-                                                                <li><a href="shop-sidebar.html">Variable Product</a></li>
-                                                                <li><a href="shop-sidebar.html">External Product</a></li>
-                                                                <li><a href="shop-sidebar.html">Other Shop Pages</a></li>
-                                                                <li><a href="shop-sidebar.html">Categories</a></li>
-                                                                <li><a href="shop-sidebar.html">Collection</a></li>
-                                                                <li><a href="shop-sidebar.html">LookBook</a></li>
-                                                                <li><a href="cart.html">Shopping Cart</a></li>
-                                                            </ul>
-                                                            <ul class="mega-menu-col sub-cat-post">
-                                                                <li>
-                                                                    <a href="shop-sidebar.html">
-                                                                        <img src="<?php bloginfo('template_url'); ?>/img/product/sub_menu_img01.jpg" alt="">
-                                                                        <span class="btn">Man Shop</span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                            <ul class="mega-menu-col sub-cat-post">
-                                                                <li>
-                                                                    <a href="shop-sidebar.html">
-                                                                        <img src="<?php bloginfo('template_url'); ?>/img/product/sub_menu_img02.jpg" alt="">
-                                                                        <span class="btn">Women’s Shop</span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
+                                                <li><a href="<?php echo home_url(); ?>/lista-productos">Productos</a>
                                                 </li>
                                                 <li><a href="<?php echo home_url(); ?>/somos">Somos</a></li>
                                             </ul>
@@ -197,14 +157,7 @@
                                     <ul class="navigation">
                                         <li class="active"><a href="<?php echo home_url(); ?>">Inicio</a>
                                         </li>
-                                        <li class="menu-item-has-children"><a href="#">Productos</a>
-                                            <ul class="submenu">
-                                                <li><a href="shop.html">Shop Page</a></li>
-                                                <li><a href="shop-sidebar.html">Shop Sidebar</a></li>
-                                                <li><a href="shop-details.html">Shop Details</a></li>
-                                                <li><a href="cart.html">Cart Page</a></li>
-                                                <li><a href="cart.html">Checkout Page</a></li>
-                                            </ul>
+                                        <li class=""><a href="<?php echo home_url(); ?>/lista-productos">Productos</a>
                                         </li>
                                         <li><a href="<?php echo home_url(); ?>/somos">Somos</a></li>
                                         <li class=""><a href="<?php echo home_url(); ?>/contacto">Contacto</a>
