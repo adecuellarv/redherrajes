@@ -76,8 +76,8 @@
                     <div class="col-sm-6">
                         <div class="header-top-link">
                             <ul>
-                                <li><a href="about-us.html">Somos</a></li>
-                                <li><a href="#">FAQS</a></li>
+                                <li><a href="<?php echo home_url(); ?>/somos">Somos</a></li>
+                                <li><a href="<?php echo home_url(); ?>/ayuda">FAQS</a></li>
                             </ul>
                         </div>
                     </div>
@@ -173,7 +173,7 @@
                                             <ul class="navigation right">
                                                 <li class="menu-item-has-children"><a href="<?php echo home_url(); ?>/contacto">Contacto y Ubicación</a>
                                                 </li>
-                                                <li><a href="contact.html">Ayuda</a></li>
+                                                <li><a href="<?php echo home_url(); ?>/ayuda">Ayuda</a></li>
                                                 <li class="header-search"><a href="#" data-toggle="modal" data-target="#search-modal"><i class="flaticon-search"></i></a></li>
                                             </ul>
                                         </div>
@@ -191,24 +191,13 @@
                         <div class="mobile-menu">
                             <div class="close-btn"><i class="flaticon-targeting-cross"></i></div>
                             <nav class="menu-box">
-                                <div class="nav-logo"><a href="<?php echo home_url(); ?>"><img src="<?php bloginfo('template_url'); ?>/img/logo/logo.png" alt="logo" title="logo"></a>
+                                <div class="nav-logo"><a href="<?php echo home_url(); ?>"><img src="<?php bloginfo('template_url'); ?>/img/logo/logo-rh-mb.png" alt="logo" title="logo"></a>
                                 </div>
                                 <div class="menu-outer">
                                     <ul class="navigation">
-                                        <li class="active menu-item-has-children"><a href="#">Home</a>
-                                            <ul class="submenu">
-                                                <li><a href="<?php echo home_url(); ?>">Home One</a></li>
-                                                <li><a href="index-2.html">Home Two</a></li>
-                                                <li><a href="index-3.html">Home Three</a></li>
-                                                <li><a href="index-4.html">Home Four</a></li>
-                                                <li><a href="index-5.html">Home Five</a></li>
-                                                <li><a href="index-6.html">Home Six</a></li>
-                                                <li><a href="index-7.html">Home Seven</a></li>
-                                                <li><a href="index-8.html">Home Eight</a></li>
-                                                <li class="active"><a href="index-9.html">Home Nine</a></li>
-                                            </ul>
+                                        <li class="active"><a href="<?php echo home_url(); ?>">Inicio</a>
                                         </li>
-                                        <li class="menu-item-has-children"><a href="#">Shop</a>
+                                        <li class="menu-item-has-children"><a href="#">Productos</a>
                                             <ul class="submenu">
                                                 <li><a href="shop.html">Shop Page</a></li>
                                                 <li><a href="shop-sidebar.html">Shop Sidebar</a></li>
@@ -217,14 +206,10 @@
                                                 <li><a href="cart.html">Checkout Page</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="about-us.html">About Us</a></li>
-                                        <li class="menu-item-has-children"><a href="#">blog</a>
-                                            <ul class="submenu">
-                                                <li><a href="blog.html">Our Blog</a></li>
-                                                <li><a href="blog-details.html">Blog Details</a></li>
-                                            </ul>
+                                        <li><a href="<?php echo home_url(); ?>/somos">Somos</a></li>
+                                        <li class=""><a href="<?php echo home_url(); ?>/contacto">Contacto</a>
                                         </li>
-                                        <li><a href="contact.html">Contact Us</a></li>
+                                        <li><a href="<?php echo home_url(); ?>/ayuda">Ayuda</a></li>
                                     </ul>
                                 </div>
                                 <div class="social-links">
@@ -258,84 +243,7 @@
         </div>
         <!-- Modal Search-end -->
 
-        <!-- off-canvas-start -->
-        <div class="sidebar-off-canvas info-group">
-            <div class="off-canvas-overlay"></div>
-            <div class="off-canvas-widget scroll">
-                <div class="sidebar-widget-container">
-                    <div class="off-canvas-heading">
-                        <a href="#" class="close-side-widget">
-                            <span class="flaticon-targeting-cross"></span>
-                        </a>
-                    </div>
-                    <div class="sidebar-textwidget">
-                        <div class="sidebar-info-contents">
-                            <div class="content-inner">
-                                <div class="logo mb-30">
-                                    <a href="<?php echo home_url(); ?>"><img src="<?php bloginfo('template_url'); ?>/img/logo/logo.png" alt=""></a>
-                                </div>
-                                <div class="content-box">
-                                    <p>WooCommerce and WordPress are both free, open source software reasons many ...</p>
-                                </div>
-                                <div class="contact-info">
-                                    <h4 class="title">CONTACT US</h4>
-                                    <ul>
-                                        <li><span class="flaticon-phone-call"></span><a href="tel:123456789">+9 325 444 0000</a></li>
-                                        <li><span class="flaticon-email"></span><a href="mailto:adara@info.com">adara@info.com</a></li>
-                                        <li><span class="flaticon-place"></span>71 Park Lan Street 2355 NY</li>
-                                    </ul>
-                                </div>
-                                <div class="oc-newsletter">
-                                    <h4 class="title">NEWSLETTER</h4>
-                                    <p>Fill your email below to subscribe to my newsletter</p>
-                                    <form action="#">
-                                        <input type="email" placeholder="Email...">
-                                        <button class="btn">Subscribe</button>
-                                    </form>
-                                </div>
-                                <div class="oc-social">
-                                    <ul>
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-google"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="oc-bottom">
-                                    <div class="currency">
-                                        <form action="#">
-                                            <label>Currency</label>
-                                            <select name="select">
-                                                <option value="">USD</option>
-                                                <option value="">AUE</option>
-                                                <option value="">SAR</option>
-                                                <option value="">INR</option>
-                                                <option value="">BDT</option>
-                                            </select>
-                                        </form>
-                                    </div>
-                                    <div class="language">
-                                        <form action="#">
-                                            <label>Language</label>
-                                            <select name="select">
-                                                <option value="">English</option>
-                                                <option value="">Spanish</option>
-                                                <option value="">Turkish</option>
-                                                <option value="">Russian</option>
-                                                <option value="">Chinese</option>
-                                            </select>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- off-canvas-end -->
+       
 
     </header>
     <!-- header-area-end -->
