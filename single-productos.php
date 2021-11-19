@@ -28,7 +28,7 @@ if (!empty($post_components) && !is_wp_error($post_components)) {
 
 
     <!-- shop-details-area -->
-    <section class="shop-details-area pt-100 pb-95">
+    <section class="shop-details-area pt-170 pb-95">
         <div class="container">
             <div class="row">
                 <div class="col-lg-7">

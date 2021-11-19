@@ -83,9 +83,9 @@ if ($cat_get != '') {
     );
 }
 
-$Query = new WP_Query($args);
+$QueryT = new WP_Query($args);
 
-if (have_posts()) : while ($Query->have_posts()) : $Query->the_post();
+if (have_posts()) : while ($QueryT->have_posts()) : $QueryT->the_post();
         $totalItems++;
     endwhile;
 endif;
@@ -97,7 +97,7 @@ endif;
         <div class="row">
             <div class="col-12">
                 <div class="breadcrumb-content">
-                    <h2><?php echo $titulo; ?></h2>
+                    <h2>Lista productos</h2>
                 </div>
             </div>
         </div>
@@ -134,11 +134,11 @@ endif;
                 </div>
                 <div class="row">
                     <?php
+                    $QueryP = new WP_Query($args);
+                    if ($QueryP->have_posts()) :
 
-                    if ($Query->have_posts()) :
-
-                        while ($Query->have_posts()) :
-                            $Query->the_post();
+                        while ($QueryP->have_posts()) :
+                            $QueryP->the_post();
                             $totalItems++;
                             $thumbID = get_post_thumbnail_id($post->ID);
                             $imgDestacada = wp_get_attachment_url($thumbID);
@@ -150,15 +150,15 @@ endif;
                             <div class="col-xl-4 col-sm-6">
                                 <div class="new-arrival-item text-center mb-50">
                                     <div class="thumb mb-25">
-                                        <a href="productos/<?php echo $slug; ?>"><img src="<?php echo $imgDestacada; ?>" alt="<?php echo $slug; ?>"></a>
+                                        <a href="<?php echo home_url(); ?>/productos/<?php echo $slug; ?>"><img src="<?php echo $imgDestacada; ?>" alt="<?php echo $slug; ?>"></a>
                                         <div class="product-overlay-action">
                                             <ul>
-                                                <li><a href="productos/<?php echo $slug; ?>"><i class="far fa-eye"></i></a></li>
+                                                <li><a href="<?php echo home_url(); ?>/productos/<?php echo $slug; ?>"><i class="far fa-eye"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="content">
-                                        <h5><a href="productos/<?php echo $slug; ?>"><?php the_title(); ?></a></h5>
+                                        <h5><a href="<?php echo home_url(); ?>/productos/<?php echo $slug; ?>"><?php the_title(); ?></a></h5>
                                         <span class="price">SKU: <?php echo $caracteristicas['sku']; ?></span>
                                     </div>
                                 </div>
@@ -180,7 +180,7 @@ endif;
                         //$args = array( 'post_type' => 'productos','posts_per_page' =>8, 'order' => 'DESC', 'paged' => $page ); 
                         //print_r($args);
                         //if (function_exists('custom_pagination')) { echo "hey";
-                            print_r(custom_pagination($et_testimonials_query_pag->max_num_pages,"",$page));
+                            //print_r(custom_pagination($et_testimonials_query_pag->max_num_pages,"",$page));
                          //}
                     ?>
                     <ul>
@@ -219,7 +219,7 @@ endif;
                             <h4 class="widget-title">Componentes</h4>
                             <div class="shop-size-list">
                                 <ul>
-                                    <?php foreach ($categoria as $term) {
+                                    <?php foreach ($components as $term) {
                                         $edit_post = addGetParamToUrl($url, 'component', $term->slug); ?>
                                         <li><a href="<?php echo $edit_post; ?>"><?php echo $term->name; ?> (<?php echo $term->count; ?>)</a></li>
                                     <?php } ?>

@@ -5,14 +5,21 @@ $slider = get_field('slider_home', $post->ID);
 $somos = get_field('somos', $post->ID);
 $cotizacion = get_field('cotizacion', $post->ID);
 ?>
+
 <!-- main-area -->
 <main>
 
     <!-- slider-area -->
     <section class="h9-slider-area">
         <div class="h9-slider-active">
+            <div>
+                <video style="width: 100%; height: 750px;" id="videoid" muted>
+                    <source src="<?php bloginfo('template_url'); ?>/video/CorporateLogoHD_Red_de_Herrajes.webm" type="video/webm">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
             <?php foreach ($slider as &$item) { ?>
-                <div class="h9-slider-item" style="background: linear-gradient(to right, rgba(191, 191, 191, 0.6), rgba(149, 149, 149, 0.6)) 100% 100% / cover no-repeat, url(<?php bloginfo('template_url'); ?>/img/slider/white-bg.jpeg); background-position: 100% 100%; background-repeat: no-repeat; background-size:cover;">
+                <div class="h9-slider-item" style="background: linear-gradient(to right, rgba(191, 191, 191, 0.6), rgba(149, 149, 149, 0.6)) 100% 100% / cover no-repeat, url(<?php bloginfo('template_url'); ?>/img/slider/white-bg.jpeg); background-position: 100% 100%; background-repeat: no-repeat; background-size:cover;height:750px;">
                     <div class="container">
                         <div class="row align-items-center justify-content-center">
                             <div class="col-lg-6">
@@ -50,13 +57,7 @@ $cotizacion = get_field('cotizacion', $post->ID);
                         </div>
                         <div class="h9-choose-list">
                             <p><?php echo $somos['descripcion']; ?></p>
-                            <a 
-                                data-animation-in="fadeInUp" 
-                                data-delay-in="1.2" 
-                                data-duration-in="1.5" 
-                                class="btn"
-                                href="<?php echo home_url(); ?>/somos"
-                            >Ver más</a>
+                            <a data-animation-in="fadeInUp" data-delay-in="1.2" data-duration-in="1.5" class="btn" href="<?php echo home_url(); ?>/somos">Ver más</a>
                         </div>
                     </div>
                 </div>
@@ -71,7 +72,7 @@ $cotizacion = get_field('cotizacion', $post->ID);
             <div class="row justify-content-center">
                 <div class="col-xl-4 col-lg-6">
                     <div class="section-title title-style-two text-center mb-45">
-                        <h3 class="title">New Arrival Collection</h3>
+                        <h3 class="title">Productos destacados</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +90,7 @@ $cotizacion = get_field('cotizacion', $post->ID);
                         <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">
                             <div class="new-arrival-item text-center mb-50">
                                 <div class="thumb mb-25">
-                                    <a href="productos/<?php echo $slug; ?>" ><img src="<?php echo $imgDestacada; ?>" alt="<?php echo $titulo; ?>"></a>
+                                    <a href="productos/<?php echo $slug; ?>"><img src="<?php echo $imgDestacada; ?>" alt="<?php echo $titulo; ?>"></a>
                                     <div class="product-overlay-action">
                                         <ul>
                                             <li><a href="productos/<?php echo $slug; ?>"><i class="far fa-eye"></i></a></li>
@@ -97,7 +98,7 @@ $cotizacion = get_field('cotizacion', $post->ID);
                                     </div>
                                 </div>
                                 <div class="content">
-                                    <h5><a href="productos/<?php echo $slug; ?>" ><?php echo $titulo; ?></a></h5>
+                                    <h5><a href="productos/<?php echo $slug; ?>"><?php echo $titulo; ?></a></h5>
                                     <span class="price"></span>
                                     <a href="productos/<?php echo $slug; ?>" class="btn">
                                         Ver
@@ -122,12 +123,12 @@ $cotizacion = get_field('cotizacion', $post->ID);
                     <div class="reservation-wrap text-center">
                         <div class="reservation-title">
                             <div class="icon"><img src="<?php bloginfo('template_url'); ?>/img/icon/res_icon.png" alt=""></div>
-                            <h2 class="title"><?php echo $cotizacion['titulo']; ?><span>.</span></h2>
+                            <h2 class="title"><span>.</span><?php echo $cotizacion['titulo']; ?><span>.</span></h2>
                         </div>
                         <div class="reservation-contact">
                             <p><span><?php echo $cotizacion['tel']; ?></span> – <?php echo $cotizacion['email']; ?></p>
                         </div>
-                       
+
                     </div>
                 </div>
             </div>
@@ -140,3 +141,4 @@ $cotizacion = get_field('cotizacion', $post->ID);
 
 
 <?php get_footer(); ?>
+<script src="<?php bloginfo('template_url'); ?>/js/slider-custom.js"></script>
