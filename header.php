@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="es">
 
 <head>
     <meta charset="utf-8">
@@ -84,7 +84,7 @@
                     <div class="col-sm-6">
                         <div class="header-top-right">
                             <ul>
-                                <li><a href="tel:123456789">325 362 3521</a></li>
+                                <li><a href="tel:5579461813">5579461813 </a></li>
                             </ul>
                         </div>
                     </div>
@@ -122,18 +122,18 @@
                                         </div>
                                         <div class="navbar-wrap main-menu d-none d-lg-flex">
                                             <ul class="navigation left">
-                                                <li class="active menu-item-has-children has--mega--menu"><a href="<?php echo home_url(); ?>">Inicio</a></li>
-                                                <li><a href="<?php echo home_url(); ?>/lista-productos">Productos</a>
+                                                <li class="<?php if (is_page('home')){ echo 'active';}?> menu-item-has-children has--mega--menu"><a href="<?php echo home_url(); ?>">Inicio</a></li>
+                                                <li class="<?php if (is_page('lista-productos')){ echo 'active';}?>"><a href="<?php echo home_url(); ?>/lista-productos">Productos</a>
                                                 </li>
-                                                <li><a href="<?php echo home_url(); ?>/somos">Somos</a></li>
+                                                <li class="<?php if (is_page('somos')){ echo 'active';}?>"><a href="<?php echo home_url(); ?>/somos">Somos</a></li>
                                             </ul>
                                             <div class="logo">
                                                 <a href="<?php echo home_url(); ?>"><img class="logo-header" src="<?php bloginfo('template_url'); ?>/img/logo/logo-rh.png" alt="Logo"></a>
                                             </div>
                                             <ul class="navigation right">
-                                                <li class="menu-item-has-children"><a href="<?php echo home_url(); ?>/contacto">Contacto y Ubicación</a>
+                                                <li class="menu-item-has-children <?php if (is_page('contacto')){ echo 'active';}?>"><a href="<?php echo home_url(); ?>/contacto">Contacto y Ubicación</a>
                                                 </li>
-                                                <li><a href="<?php echo home_url(); ?>/ayuda">Ayuda</a></li>
+                                                <li class="<?php if (is_page('ayuda')){ echo 'active';}?>"><a href="<?php echo home_url(); ?>/ayuda">Ayuda</a></li>
                                                 <li class="header-search"><a href="#" data-toggle="modal" data-target="#search-modal"><i class="flaticon-search"></i></a></li>
                                             </ul>
                                         </div>

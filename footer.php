@@ -22,12 +22,7 @@
                                 </nav>
                                 <div class="footer-social">
                                     <ul>
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-google"></i></a></li>
+                                        <li><a href="tel:5579461813">5579461813</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -38,7 +33,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-6">
                             <div class="copyright-text">
-                                <p>&copy; 2021 <a href="<?php echo home_url(); ?>">Red de Herrajes</a>. Todos los derechos reservados</p>
+                                <p>&copy; 2022 <a href="<?php echo home_url(); ?>">Red de Herrajes</a>. Todos los derechos reservados</p>
                             </div>
                         </div>
                     </div>
