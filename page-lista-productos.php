@@ -24,7 +24,7 @@ $cat_get = '';
 $com_get = '';
 $order = 'ASC';
 $page = -1;
-
+$totalItems = 0;
 
 if (isset($_GET['category'])) {
     $cat_get = $_GET['category'];
@@ -39,10 +39,12 @@ if (isset($_GET['page'])) {
     $page = $_GET['page'];
 }
 
+//$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 if ($cat_get != '') {
     $args = array(
         'post_type' => 'productos',
-        'posts_per_page' => $page,
+        'posts_per_page' => 20,
+        'paged' => $page,
         'orderby' => 'title',
         'order' => $order,
         'tax_query' => array(
@@ -58,7 +60,8 @@ if ($cat_get != '') {
 } else if ($com_get != '') {
     $args = array(
         'post_type' => 'productos',
-        'posts_per_page' => $page,
+        'posts_per_page' => 20,
+        'paged' => $page,
         'orderby' => 'title',
         'order' => $order,
         'tax_query' => array(
@@ -79,6 +82,13 @@ if ($cat_get != '') {
         'order' => $order
     );
 }
+
+$Query = new WP_Query($args);
+
+if (have_posts()) : while ($Query->have_posts()) : $Query->the_post();
+        $totalItems++;
+    endwhile;
+endif;
 ?>
 
 <!-- breadcrumb-area -->
@@ -105,7 +115,7 @@ if ($cat_get != '') {
                         <div class="col-md-6">
                             <div class="shop-top-left">
                                 <ul>
-                                    <li>Showing 1–9 of 80 results</li>
+                                    <li> <b><?php echo $totalItems; ?></b> Resultados</li>
                                 </ul>
                             </div>
                         </div>
@@ -124,11 +134,12 @@ if ($cat_get != '') {
                 </div>
                 <div class="row">
                     <?php
-                    $Query = new WP_Query($args);
+
                     if ($Query->have_posts()) :
 
                         while ($Query->have_posts()) :
                             $Query->the_post();
+                            $totalItems++;
                             $thumbID = get_post_thumbnail_id($post->ID);
                             $imgDestacada = wp_get_attachment_url($thumbID);
                             $titulo = get_the_title();
@@ -160,11 +171,18 @@ if ($cat_get != '') {
                     endif;
                     wp_reset_postdata();
                     ?>
-                   
+
 
 
                 </div>
                 <div class="pagination-wrap">
+                    <?php 
+                        //$args = array( 'post_type' => 'productos','posts_per_page' =>8, 'order' => 'DESC', 'paged' => $page ); 
+                        //print_r($args);
+                        //if (function_exists('custom_pagination')) { echo "hey";
+                            print_r(custom_pagination($et_testimonials_query_pag->max_num_pages,"",$page));
+                         //}
+                    ?>
                     <ul>
                         <li class="prev"><a href="#">Prev</a></li>
                         <li><a href="#">1</a></li>
@@ -203,7 +221,7 @@ if ($cat_get != '') {
                                 <ul>
                                     <?php foreach ($categoria as $term) {
                                         $edit_post = addGetParamToUrl($url, 'component', $term->slug); ?>
-                                        <li><a href="<?php echo $edit_post; ?>"><?php echo $term->name; ?></a></li>
+                                        <li><a href="<?php echo $edit_post; ?>"><?php echo $term->name; ?> (<?php echo $term->count; ?>)</a></li>
                                     <?php } ?>
                                 </ul>
                             </div>
