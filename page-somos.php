@@ -45,7 +45,7 @@ $content = $post_content->post_content;
     <!-- blog-area-end -->
 
     <!-- exclusive-services -->
-    <section class="exclusive-services pt-100 pb-100">
+    <section class="exclusive-services pb-100">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6 col-md-8">
