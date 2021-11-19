@@ -12,14 +12,17 @@ $cotizacion = get_field('cotizacion', $post->ID);
     <!-- slider-area -->
     <section class="h9-slider-area">
         <div class="h9-slider-active">
-            <div>
-                <video style="width: 100%; height: 750px;" id="videoid" muted>
+            <div >
+                <video 
+                    style="" 
+                    id="videoid" muted playsinline>
                     <source src="<?php bloginfo('template_url'); ?>/video/CorporateLogoHD_Red_de_Herrajes.webm" type="video/webm">
+                    <source src="<?php bloginfo('template_url'); ?>/video/CorporateLogoHD_Red_de_Herrajes.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
             <?php foreach ($slider as &$item) { ?>
-                <div class="h9-slider-item" style="background: linear-gradient(to right, rgba(191, 191, 191, 0.6), rgba(149, 149, 149, 0.6)) 100% 100% / cover no-repeat, url(<?php bloginfo('template_url'); ?>/img/slider/white-bg.jpeg); background-position: 100% 100%; background-repeat: no-repeat; background-size:cover;height:750px;">
+                <div class="h9-slider-item" style="background: linear-gradient(to right, rgba(191, 191, 191, 0.6), rgba(149, 149, 149, 0.6)) 100% 100% / cover no-repeat, url(<?php bloginfo('template_url'); ?>/img/slider/white-bg.jpeg); background-position: 100% 100%; background-repeat: no-repeat; background-size:cover;height:100vh;">
                     <div class="container">
                         <div class="row align-items-center justify-content-center">
                             <div class="col-lg-6">
