@@ -26,6 +26,9 @@ $search_get = '';
 $order = 'ASC';
 $page = -1;
 $totalItems = 0;
+$per_page = 1000;
+$staticHowItems = 20;
+$showItems = 20;
 
 if (isset($_GET['category'])) {
     $cat_get = $_GET['category'];
@@ -39,36 +42,57 @@ if (isset($_GET['search'])) {
 if (isset($_GET['order'])) {
     $order = $_GET['order'];
 }
-if (isset($_GET['page'])) {
-    $page = $_GET['page'];
+if (isset($_GET['pagination'])) {
+    $pagination = $_GET['pagination'];
 }
 
-$args =  array(
-    'post_type' => 'productos',
-    'posts_per_page' => 20,
-    'paged' => $page,
-    'orderby' => 'title',
-    'order' => $order
-);
-
-if ($search_get !="" ) {
-    array_push($args, "s", $search_get);
-} else if ($cat_get!=="") {
-    array_push($args, 'tax_query', array(
-        array(
-            'taxonomy' => 'categoria',
-            'field' => 'slug',
-            'terms' => $cat_get
+if ($search_get != "") {
+    $args =  array(
+        'post_type' => 'productos',
+        'posts_per_page' => $per_page,
+        //'paged' => $page,
+        'orderby' => 'title',
+        'order' => $order,
+        's' => $search_get
+    );
+} else if ($cat_get !== "") {
+    $args =  array(
+        'post_type' => 'productos',
+        'posts_per_page' => $per_page,
+        //'paged' => $page,
+        'orderby' => 'title',
+        'order' => $order,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'categoria',
+                'field' => 'slug',
+                'terms' => $cat_get
+            )
         )
-    ));
-} else if ($com_get!=="") {
-    array_push($args, 'tax_query', array(
-        array(
-            'taxonomy' => 'components',
-            'field' => 'slug',
-            'terms' => $com_get
+    );
+} else if ($com_get !== "") {
+    $args =  array(
+        'post_type' => 'productos',
+        'posts_per_page' => $per_page,
+        //'paged' => $page,
+        'orderby' => 'title',
+        'order' => $order,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'components',
+                'field' => 'slug',
+                'terms' => $com_get
+            )
         )
-    ));
+    );
+} else {
+    $args =  array(
+        'post_type' => 'productos',
+        'posts_per_page' => $per_page,
+        //'paged' => $page,
+        'orderby' => 'title',
+        'order' => $order
+    );
 }
 
 $QueryT = new WP_Query($args);
@@ -77,6 +101,16 @@ if (have_posts()) : while ($QueryT->have_posts()) : $QueryT->the_post();
         $totalItems++;
     endwhile;
 endif;
+
+$totalPages = ceil($totalItems / $staticHowItems);
+
+if ($pagination) {
+    if ($pagination == -1 || $pagination == 1) {
+        $showItems = $staticHowItems;
+    } else {
+        $showItems = $staticHowItems * $pagination;
+    }
+}
 ?>
 
 <!-- breadcrumb-area -->
@@ -104,16 +138,22 @@ endif;
                             <div class="shop-top-left">
                                 <ul>
                                     <li> <b><?php echo $totalItems; ?></b> Resultados</li>
+                                    <li>Página <?php echo $pagination !="" ? $pagination : 1; ?> de <?php echo $totalPages; ?> </li>
                                 </ul>
+                                <div style="margin-top: 15px;">
+                                    <a href="https://www.monorama.com.mx/redherrajes/wp-content/themes/redherrajes/descargas/cat_v2_RED_2021.pdf" target="_black">
+                                        Descargar catálogo <i class="fas fa-download"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="shop-top-right">
-                                <form action="#">
+                                <form action="">
                                     <select name="select">
                                         <option value="">Ordernar <?php echo $order; ?></option>
-                                        <option><a href="<?php echo addGetParamToUrl($url, 'order', 'ASC'); ?>">A-Z</a></option>
-                                        <option><a href="<?php echo addGetParamToUrl($url, 'order', 'DESC'); ?>">Z-A</a></option>
+                                        <option onchange="changeOrder(<?php echo addGetParamToUrl($url, 'order', 'ASC'); ?>)"><a href="<?php echo addGetParamToUrl($url, 'order', 'ASC'); ?>">A-Z</a></option>
+                                        <optio onchange="changeOrder(<?php echo addGetParamToUrl($url, 'order', 'ASC'); ?>)"><a href="<?php echo addGetParamToUrl($url, 'order', 'DESC'); ?>">Z-A</a></option>
                                     </select>
                                 </form>
                             </div>
@@ -123,6 +163,9 @@ endif;
                 <div class="row">
                     <?php
                     $QueryP = new WP_Query($args);
+                    $min = $showItems - $staticHowItems;
+                    $max = $showItems;
+                    $countQR = 0;
                     if ($QueryP->have_posts()) :
 
                         while ($QueryP->have_posts()) :
@@ -133,25 +176,28 @@ endif;
                             $titulo = get_the_title();
                             $slug = basename(get_permalink($post->ID));
                             $caracteristicas = get_field('caracteristicas', $post->ID);
-
+                            if ($countQR >= $min && $countQR <= $max) {
                     ?>
-                            <div class="col-xl-4 col-sm-6">
-                                <div class="new-arrival-item text-center mb-50">
-                                    <div class="thumb mb-25">
-                                        <a href="<?php echo home_url(); ?>/productos/<?php echo $slug; ?>"><img src="<?php echo $imgDestacada; ?>" alt="<?php echo $slug; ?>"></a>
-                                        <div class="product-overlay-action">
-                                            <ul>
-                                                <li><a href="<?php echo home_url(); ?>/productos/<?php echo $slug; ?>"><i class="far fa-eye"></i></a></li>
-                                            </ul>
+                                <div class="col-xl-4 col-sm-6">
+                                    <div class="new-arrival-item text-center mb-50">
+                                        <div class="thumb mb-25">
+                                            <a href="<?php echo home_url(); ?>/productos/<?php echo $slug; ?>"><img src="<?php echo $imgDestacada; ?>" alt="<?php echo $slug; ?>"></a>
+                                            <div class="product-overlay-action">
+                                                <ul>
+                                                    <li><a href="<?php echo home_url(); ?>/productos/<?php echo $slug; ?>"><i class="far fa-eye"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="content">
+                                            <h5><a href="<?php echo home_url(); ?>/productos/<?php echo $slug; ?>"><?php the_title(); ?></a></h5>
+                                            <span class="price">SKU: <?php echo $caracteristicas['sku']; ?></span>
                                         </div>
                                     </div>
-                                    <div class="content">
-                                        <h5><a href="<?php echo home_url(); ?>/productos/<?php echo $slug; ?>"><?php the_title(); ?></a></h5>
-                                        <span class="price">SKU: <?php echo $caracteristicas['sku']; ?></span>
-                                    </div>
                                 </div>
-                            </div>
                     <?php
+
+                            }
+                            $countQR++;
                         endwhile;
 
                     else :
@@ -165,39 +211,53 @@ endif;
                 </div>
                 <div class="pagination-wrap">
                     <?php
-                    //$args = array( 'post_type' => 'productos','posts_per_page' =>8, 'order' => 'DESC', 'paged' => $page ); 
-                    //print_r($args);
-                    //if (function_exists('custom_pagination')) { echo "hey";
-                    //print_r(custom_pagination($et_testimonials_query_pag->max_num_pages,"",$page));
-                    //}
+                    $nextpage = '';
+                    $prevpage = '';
+                    if ($totalPages < $pagination) {
+                        $nextpage = addGetParamToUrl($url, 'pagination', $pagination + 1);
+                    }
+                    if ($prevpage > 1 && $totalPages > 1 && $pagination > 1) {
+                        $prevpage = addGetParamToUrl($url, 'pagination', $pagination - 1);
+                    }
                     ?>
                     <ul>
-                        <li class="prev"><a href="#">Prev</a></li>
-                        <li><a href="#">1</a></li>
-                        <li class="active"><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">...</a></li>
-                        <li><a href="#">10</a></li>
-                        <li class="next"><a href="#">Next</a></li>
+                        <?php if ($prevpage) { ?>
+                            <li class="prev"><a href="<?php echo $prevpage; ?>">Prev</a></li>
+                        <?php } ?>
+                        <?php for ($i = 1; $i <= $totalPages; $i++) {
+                            $go_page = addGetParamToUrl($url, 'pagination', $i);
+                        ?>
+                            <li class="<?php if ($pagination == $i || $pagination == '' && $i == 1) {
+                                            echo "active";
+                                        }  ?>">
+                                <a href="<?php echo $go_page; ?>"><?php echo $i; ?></a>
+                            </li>
+                        <?php } ?>
+                        <?php if ($nextpage) { ?>
+                            <li class="next"><a href="<?php echo $nextpage; ?>">Next</a></li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>
             <div class="col-xl-3 col-lg-4">
                 <aside class="shop-sidebar">
                     <div class="widget side-search-bar">
-                        <form action="#">
-                            <input type="text">
+                        <form action="<?php echo home_url(); ?>/lista-productos">
+                            <input type="text" name="search" value="<?php echo $search_get; ?>">
                             <button><i class="flaticon-search"></i></button>
                         </form>
+                    </div>
+                    <div class="widget">
+                        <a href="<?php echo home_url(); ?>/lista-productos">Limpiar filtros</a>
                     </div>
                     <div class="widget">
                         <h4 class="widget-title">Categorías de productos</h4>
                         <div class="shop-cat-list">
                             <ul>
                                 <?php foreach ($categoria as $term) {
+                                    addGetParamToUrl($url, 'category', $term->slug);
                                     $edit_post_ = addGetParamToUrl($url, 'category', $term->slug); ?>
-                                    <li><a href="<?php echo $edit_post_; ?>"><?php echo $term->name; ?></a><span>(<?php echo $term->count; ?>)</span></li>
+                                    <li><a href="<?php echo home_url(); ?>/lista-productos?category=<?php echo $term->slug; ?>"><?php echo $term->name; ?></a><span>(<?php echo $term->count; ?>)</span></li>
                                 <?php } ?>
                             </ul>
                         </div>
@@ -209,7 +269,7 @@ endif;
                                 <ul>
                                     <?php foreach ($components as $term) {
                                         $edit_post = addGetParamToUrl($url, 'component', $term->slug); ?>
-                                        <li><a href="<?php echo $edit_post; ?>"><?php echo $term->name; ?> (<?php echo $term->count; ?>)</a></li>
+                                        <li><a href="<?php echo home_url(); ?>/lista-productos?component=<?php echo $term->slug; ?>"><?php echo $term->name; ?> (<?php echo $term->count; ?>)</a></li>
                                     <?php } ?>
                                 </ul>
                             </div>
@@ -221,5 +281,9 @@ endif;
     </div>
 </section>
 <!-- shop-area-end -->
-
+<script>
+    const changeOrder = (url) => {
+        window.location.href = url;
+    };
+</script>
 <?php get_footer(); ?>

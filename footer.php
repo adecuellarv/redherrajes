@@ -39,6 +39,9 @@
                     </div>
                 </div>
             </div>
+            <a class="appWhatsapp" target="_blank" href="https://api.whatsapp.com/send?phone=+525579461813&text=Hola%20quiero%20información">
+                <img src="<?php bloginfo('template_url'); ?>/img/whatsapp.png" alt="whatsapp">
+            </a>
         </footer>
         <!-- footer-area-end -->
 
@@ -46,7 +49,7 @@
 
 
 
-		<!-- JS here -->
+        <!-- JS here -->
         <script src="<?php bloginfo('template_url'); ?>/js/vendor/jquery-3.5.0.min.js"></script>
         <script src="<?php bloginfo('template_url'); ?>/js/popper.min.js"></script>
         <script src="<?php bloginfo('template_url'); ?>/js/bootstrap.min.js"></script>
@@ -64,5 +67,6 @@
         <script src="<?php bloginfo('template_url'); ?>/js/nav-tool.js"></script>
         <script src="<?php bloginfo('template_url'); ?>/js/plugins.js"></script>
         <script src="<?php bloginfo('template_url'); ?>/js/main.js"></script>
-    </body>
-</html>
+        </body>
+
+        </html>

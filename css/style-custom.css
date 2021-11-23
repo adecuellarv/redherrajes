@@ -93,6 +93,19 @@
     font-family: 'Jost', sans-serif;
     padding: 2px 10px;
 }
+
+/* whatsapp */
+.appWhatsapp{
+	position: fixed;
+	right: 24px;
+	bottom: 30px;
+	width: 60px;
+	z-index: 1000;
+}
+.appWhatsapp img{
+	width: 100%;
+	height: auto;
+}
 /* Accordion styles */
 
 .div-faqs input {
