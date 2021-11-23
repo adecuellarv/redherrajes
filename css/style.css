@@ -1719,6 +1719,7 @@ header.side-header {
 /* 3. Search modal */
 #search-modal {
 	background-color: rgba(23,26,33,.95);
+    z-index: 9999;
 }
 #search-modal .modal-dialog {
 	position: absolute;

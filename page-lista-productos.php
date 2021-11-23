@@ -22,6 +22,7 @@ $components = get_terms(array(
 $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $cat_get = '';
 $com_get = '';
+$search_get = '';
 $order = 'ASC';
 $page = -1;
 $totalItems = 0;
@@ -32,6 +33,9 @@ if (isset($_GET['category'])) {
 if (isset($_GET['component'])) {
     $com_get = $_GET['component'];
 }
+if (isset($_GET['search'])) {
+    $search_get = $_GET['search'];
+}
 if (isset($_GET['order'])) {
     $order = $_GET['order'];
 }
@@ -39,48 +43,32 @@ if (isset($_GET['page'])) {
     $page = $_GET['page'];
 }
 
-//$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-if ($cat_get != '') {
-    $args = array(
-        'post_type' => 'productos',
-        'posts_per_page' => 20,
-        'paged' => $page,
-        'orderby' => 'title',
-        'order' => $order,
-        'tax_query' => array(
+$args =  array(
+    'post_type' => 'productos',
+    'posts_per_page' => 20,
+    'paged' => $page,
+    'orderby' => 'title',
+    'order' => $order
+);
 
-            array(
-                'taxonomy' => 'categoria',
-                'field' => 'slug',
-                'terms' => $cat_get
-            )
-
+if ($search_get !="" ) {
+    array_push($args, "s", $search_get);
+} else if ($cat_get!=="") {
+    array_push($args, 'tax_query', array(
+        array(
+            'taxonomy' => 'categoria',
+            'field' => 'slug',
+            'terms' => $cat_get
         )
-    );
-} else if ($com_get != '') {
-    $args = array(
-        'post_type' => 'productos',
-        'posts_per_page' => 20,
-        'paged' => $page,
-        'orderby' => 'title',
-        'order' => $order,
-        'tax_query' => array(
-
-            array(
-                'taxonomy' => 'components',
-                'field' => 'slug',
-                'terms' => $cat_get
-            )
-
+    ));
+} else if ($com_get!=="") {
+    array_push($args, 'tax_query', array(
+        array(
+            'taxonomy' => 'components',
+            'field' => 'slug',
+            'terms' => $com_get
         )
-    );
-} else {
-    $args = array(
-        'post_type' => 'productos',
-        'posts_per_page' => $page,
-        'orderby' => 'title',
-        'order' => $order
-    );
+    ));
 }
 
 $QueryT = new WP_Query($args);
@@ -176,12 +164,12 @@ endif;
 
                 </div>
                 <div class="pagination-wrap">
-                    <?php 
-                        //$args = array( 'post_type' => 'productos','posts_per_page' =>8, 'order' => 'DESC', 'paged' => $page ); 
-                        //print_r($args);
-                        //if (function_exists('custom_pagination')) { echo "hey";
-                            //print_r(custom_pagination($et_testimonials_query_pag->max_num_pages,"",$page));
-                         //}
+                    <?php
+                    //$args = array( 'post_type' => 'productos','posts_per_page' =>8, 'order' => 'DESC', 'paged' => $page ); 
+                    //print_r($args);
+                    //if (function_exists('custom_pagination')) { echo "hey";
+                    //print_r(custom_pagination($et_testimonials_query_pag->max_num_pages,"",$page));
+                    //}
                     ?>
                     <ul>
                         <li class="prev"><a href="#">Prev</a></li>

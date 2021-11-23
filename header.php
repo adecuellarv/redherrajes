@@ -122,18 +122,28 @@
                                         </div>
                                         <div class="navbar-wrap main-menu d-none d-lg-flex">
                                             <ul class="navigation left">
-                                                <li class="<?php if (is_page('home')){ echo 'active';}?> menu-item-has-children has--mega--menu"><a href="<?php echo home_url(); ?>">Inicio</a></li>
-                                                <li class="<?php if (is_page('lista-productos')){ echo 'active';}?>"><a href="<?php echo home_url(); ?>/lista-productos">Productos</a>
+                                                <li class="<?php if (is_page('home')) {
+                                                                echo 'active';
+                                                            } ?> menu-item-has-children has--mega--menu"><a href="<?php echo home_url(); ?>">Inicio</a></li>
+                                                <li class="<?php if (is_page('lista-productos')) {
+                                                                echo 'active';
+                                                            } ?>"><a href="<?php echo home_url(); ?>/lista-productos">Productos</a>
                                                 </li>
-                                                <li class="<?php if (is_page('somos')){ echo 'active';}?>"><a href="<?php echo home_url(); ?>/somos">Somos</a></li>
+                                                <li class="<?php if (is_page('somos')) {
+                                                                echo 'active';
+                                                            } ?>"><a href="<?php echo home_url(); ?>/somos">Somos</a></li>
                                             </ul>
                                             <div class="logo">
                                                 <a href="<?php echo home_url(); ?>"><img class="logo-header" src="<?php bloginfo('template_url'); ?>/img/logo/logo-rh.png" alt="Logo"></a>
                                             </div>
                                             <ul class="navigation right">
-                                                <li class="menu-item-has-children <?php if (is_page('contacto')){ echo 'active';}?>"><a href="<?php echo home_url(); ?>/contacto">Contacto y Ubicación</a>
+                                                <li class="menu-item-has-children <?php if (is_page('contacto')) {
+                                                                                        echo 'active';
+                                                                                    } ?>"><a href="<?php echo home_url(); ?>/contacto">Contacto y Ubicación</a>
                                                 </li>
-                                                <li class="<?php if (is_page('ayuda')){ echo 'active';}?>"><a href="<?php echo home_url(); ?>/ayuda">Ayuda</a></li>
+                                                <li class="<?php if (is_page('ayuda')) {
+                                                                echo 'active';
+                                                            } ?>"><a href="<?php echo home_url(); ?>/ayuda">Ayuda</a></li>
                                                 <li class="header-search"><a href="#" data-toggle="modal" data-target="#search-modal"><i class="flaticon-search"></i></a></li>
                                             </ul>
                                         </div>
@@ -187,8 +197,8 @@
         <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <form>
-                        <input type="text" placeholder="Buscar...">
+                    <form action="<?php echo home_url(); ?>/lista-productos">
+                        <input type="text" placeholder="Buscar..." name="search">
                         <button><i class="flaticon-search"></i></button>
                     </form>
                 </div>
@@ -196,7 +206,7 @@
         </div>
         <!-- Modal Search-end -->
 
-       
+
 
     </header>
     <!-- header-area-end -->
