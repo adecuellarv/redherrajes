@@ -6,6 +6,7 @@ $thumbID = get_post_thumbnail_id($post->ID);
 $imgDestacada = wp_get_attachment_url($thumbID);
 $titulo = get_the_title();
 $slug = basename(get_permalink($postId));
+$catProduct = '';
 
 $caracteristicas = get_field('caracteristicas', $postId);
 
@@ -36,14 +37,19 @@ if (!empty($post_components) && !is_wp_error($post_components)) {
                         <div class="shop-details-nav-wrap">
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <a class="nav-link active" id="item-one-tab" data-toggle="tab" href="#item-one" role="tab" aria-controls="item-one" aria-selected="true"><img src="img/product/sd_nav_img01.jpg" alt=""></a>
+                                    <a class="nav-link active" id="item-one-tab" data-toggle="tab" href="#item-one" role="tab" aria-controls="item-one" aria-selected="true"><img src="<?php echo $imgDestacada; ?>" alt=""></a>
                                 </li>
-                                <li class="nav-item" role="presentation">
-                                    <a class="nav-link" id="item-two-tab" data-toggle="tab" href="#item-two" role="tab" aria-controls="item-two" aria-selected="false"><img src="img/product/sd_nav_img02.jpg" alt=""></a>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <a class="nav-link" id="item-three-tab" data-toggle="tab" href="#item-three" role="tab" aria-controls="item-three" aria-selected="false"><img src="img/product/sd_nav_img03.jpg" alt=""></a>
-                                </li>
+                                <?php
+                                $countGal = 0;
+                                foreach ($caracteristicas['galeria'] as &$item) {
+                                    $countGal++;
+                                ?>
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link" id="item-<?php echo $countGal; ?>-tab" data-toggle="tab" href="#item-<?php echo $countGal; ?>" role="tab" aria-controls="item-<?php echo $countGal; ?>" aria-selected="false">
+                                            <img src="<?php echo $item; ?>" alt="gal-<?php echo $countGal; ?>">
+                                        </a>
+                                    </li>
+                                <?php } ?>
                             </ul>
                         </div>
                         <div class="shop-details-img-wrap">
@@ -53,16 +59,18 @@ if (!empty($post_components) && !is_wp_error($post_components)) {
                                         <img src="<?php echo $imgDestacada; ?>" alt="">
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="item-two" role="tabpanel" aria-labelledby="item-two-tab">
-                                    <div class="shop-details-img">
-                                        <img src="<?php echo $imgDestacada; ?>" alt="">
+                                <?php
+                                $countGalT = 0;
+                                foreach ($caracteristicas['galeria'] as &$item) {
+                                    $countGalT++;
+                                ?>
+                                    <div class="tab-pane fade" id="item-<?php echo $countGalT; ?>" role="tabpanel" aria-labelledby="item-<?php echo $countGalT; ?>-tab">
+                                        <div class="shop-details-img">
+                                            <img src="<?php echo $item; ?>" alt="">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="tab-pane fade" id="item-three" role="tabpanel" aria-labelledby="item-three-tab">
-                                    <div class="shop-details-img">
-                                        <img src="<?php echo $imgDestacada; ?>" alt="">
-                                    </div>
-                                </div>
+                                <?php } ?>
+
                             </div>
                         </div>
                     </div>
@@ -72,13 +80,13 @@ if (!empty($post_components) && !is_wp_error($post_components)) {
                         <?php if (count($categories) > 0) {
                             foreach ($categories as &$item) {
                         ?>
-                                <a href="#" class="product-cat"><?php echo $item; ?></a>
+                                <label class="product-cat"><?php echo $item; ?></label>
                         <?php }
                         } ?>
                         <h3 class="title"><?php echo $titulo; ?></h3>
                         <p class="style-name">SKU : <?php echo $caracteristicas['sku']; ?></p>
                         <div class="product-details-info">
-                            <span>Embalaje <a href="#"><?php echo $caracteristicas['embalaje']; ?></a></span>
+                            <span>Embalaje <b><?php echo $caracteristicas['embalaje']; ?></b></span>
                             <div class="sidebar-product-size mb-30">
                                 <h4 class="widget-title">Componentes</h4>
                                 <div class="shop-size-list">
@@ -86,7 +94,7 @@ if (!empty($post_components) && !is_wp_error($post_components)) {
                                         <?php if (count($components) > 0) {
                                             foreach ($components as &$item) {
                                         ?>
-                                                <li><a href="#"><?php echo $item; ?></a></li>
+                                                <li><span class="components-single"><?php echo $item; ?></span></li>
                                         <?php }
                                         } ?>
                                     </ul>
@@ -95,14 +103,47 @@ if (!empty($post_components) && !is_wp_error($post_components)) {
                             <div class="sidebar-product-color">
                                 <h4 class="widget-title">Color</h4>
                                 <div class="">
-                                    <ul>
-                                        <?php foreach ($caracteristicas['colores'] as &$item) { ?>
-                                            <li>
-                                                <div><span><?php echo $item['color']; ?></span></div>
-                                                <img src="<?php echo $item['imagen']; ?>" alt="img-color" style="width: 45px;" />
-                                            </li>
-                                        <?php } ?>
-                                    </ul>
+                                    <?php
+                                    $hasStock = false;
+                                    $hasShop = false;
+                                    foreach ($caracteristicas['colores'] as &$item) {
+                                        if (!$item['bajo_pedido']) {
+                                            $hasStock = true;
+                                        }
+                                        if ($item['bajo_pedido']) {
+                                            $hasShop = true;
+                                        }
+                                    }
+                                    if ($hasStock) {
+                                    ?>
+                                        <strong>En stock:</strong>
+                                        <ul style="margin-bottom: 15px;">
+                                            <?php foreach ($caracteristicas['colores'] as &$item) {
+                                                if (!$item['bajo_pedido']) { ?>
+                                                    <li style="display: inline-block; margin: 7px;">
+                                                        <div><span><?php echo $item['color']; ?></span></div>
+                                                        <img src="<?php echo $item['imagen']; ?>" alt="img-color" style="width: 45px;" />
+                                                    </li>
+                                            <?php }
+                                            }
+                                            ?>
+                                        </ul>
+                                    <?php }
+                                    if ($hasShop) {
+                                    ?>
+                                        <strong>Bajo pedido:</strong>
+                                        <ul>
+                                            <?php foreach ($caracteristicas['colores'] as &$item) {
+                                                if ($item['bajo_pedido']) { ?>
+                                                    <li style="display: inline-block; margin: 7px;">
+                                                        <div><span><?php echo $item['color']; ?></span></div>
+                                                        <img src="<?php echo $item['imagen']; ?>" alt="img-color" style="width: 45px;" />
+                                                    </li>
+                                            <?php }
+                                            }
+                                            ?>
+                                        </ul>
+                                    <?php } ?>
                                 </div>
                             </div>
                             <div class="sidebar-product-color" style="margin-top: 35px;">
@@ -111,16 +152,6 @@ if (!empty($post_components) && !is_wp_error($post_components)) {
                                     <img src="<?php echo $caracteristicas['aperturas']; ?>" alt="caracteristicas" style="width: 50%;" />
                                 </div>
                             </div>
-                        </div>
-                        <div class="product-details-share">
-                            <ul>
-                                <li>Compartir:</li>
-                                <li><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo home_url(); ?>/productos/<?php echo $slug; ?>" target="_black"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -153,32 +184,66 @@ if (!empty($post_components) && !is_wp_error($post_components)) {
                     </div>
                 </div>
             </div>
-            <div class="related-product-wrap">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="related-product-title">
-                            <h4 class="title">Productos relacionados</h4>
+            <?php if (count($post_categories) > 0) {
+                $catProduct = $post_categories[0]->slug;
+            ?>
+                <div class="related-product-wrap">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="related-product-title">
+                                <h4 class="title">Productos relacionados</h4>
+                            </div>
                         </div>
                     </div>
+                    <div class="row related-product-active">
+                        <?php
+                        $args =  array(
+                            'post_type' => 'productos',
+                            'posts_per_page' => 4,
+                            'orderby' => 'title',
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'categoria',
+                                    'field' => 'slug',
+                                    'terms' => $catProduct
+                                )
+                            )
+                        );
+                        $QueryT = new WP_Query($args);
+                        if (have_posts()) : while ($QueryT->have_posts()) : $QueryT->the_post();
+                                //$img_slider = get_field('img_slider',get_the_ID());
+                                global $post_;
+                                $thumbID_ = get_post_thumbnail_id($post_->ID);
+                                $imgDestacada_ = wp_get_attachment_url($thumbID_);
+                                $titulo_ = get_the_title();
+                                $slug_ = basename(get_permalink($postId));
+                        ?>
+                                <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">
+                                    <div class="new-arrival-item text-center mb-50">
+                                        <div class="thumb mb-25">
+                                            <a href="<?php echo home_url(); ?>/productos/<?php echo $slug_; ?>"><img src="<?php echo $imgDestacada_; ?>" alt="<?php echo $titulo_; ?>"></a>
+                                            <div class="product-overlay-action">
+                                                <ul>
+                                                    <li><a href="<?php echo home_url(); ?>/productos/<?php echo $slug_; ?>"><i class="far fa-eye"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="content">
+                                            <h5><a href="<?php echo home_url(); ?>/productos/<?php echo $slug_; ?>"><?php echo $titulo_; ?></a></h5>
+                                            <span class="price"></span>
+                                            <a href="<?php echo home_url(); ?>/productos/<?php echo $slug_; ?>" class="btn">
+                                                Ver
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                        <?php
+                            endwhile;
+                        endif;
+                        ?>
+                    </div>
                 </div>
-                <div class="row related-product-active">
-                    <?php
-                    $serv_slid = new WP_Query('post_type=productos&meta_key=aparece_en_home&meta_value=1');
-                    if (have_posts()) : while ($serv_slid->have_posts()) : $serv_slid->the_post();
-                            //$img_slider = get_field('img_slider',get_the_ID());
-                            global $post;
-                            $thumbID = get_post_thumbnail_id($post->ID);
-                            $imgDestacada = wp_get_attachment_url($thumbID);
-                            $titulo = get_the_title();
-                            $slug = basename(get_permalink($postId));
-                    ?>
-
-                    <?php
-                        endwhile;
-                    endif;
-                    ?>
-                </div>
-            </div>
+            <?php } ?>
         </div>
     </section>
     <!-- shop-details-area-end -->
