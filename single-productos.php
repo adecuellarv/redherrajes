@@ -100,6 +100,22 @@ if (!empty($post_components) && !is_wp_error($post_components)) {
                                     </ul>
                                 </div>
                             </div>
+                            <div style="margin-bottom: 15px;">
+                                <?php //if ($caracteristicas['tipo'] . count() > 0) {
+                                foreach ($caracteristicas['tipo'] as &$item) {
+                                ?>
+                                    <div>
+                                        <?php if ($item == 'peri') { ?>
+                                            <strong> Perimetral <i class="fas fa-check"></i></strong>
+                                        <?php } else if ($item == 'est') { ?>
+                                            <strong> Estandar <i class="fas fa-check"></i></strong>
+                                        <?php } ?>
+                                    </div>
+                                <?php }
+                                //}
+                                ?>
+                            </div>
+
                             <div class="sidebar-product-color">
                                 <h4 class="widget-title">Color</h4>
                                 <div class="">
@@ -146,12 +162,15 @@ if (!empty($post_components) && !is_wp_error($post_components)) {
                                     <?php } ?>
                                 </div>
                             </div>
-                            <div class="sidebar-product-color" style="margin-top: 35px;">
-                                <h4 class="widget-title">Aperturas</h4>
-                                <div class="">
-                                    <img src="<?php echo $caracteristicas['aperturas']; ?>" alt="caracteristicas" style="width: 50%;" />
+
+                            <?php if ($caracteristicas['aperturas']) {  ?>
+                                <div class="sidebar-product-color" style="margin-top: 35px;">
+                                    <h4 class="widget-title">Aperturas</h4>
+                                    <div class="">
+                                        <img src="<?php echo $caracteristicas['aperturas']; ?>" alt="caracteristicas" style="width: 50%;" />
+                                    </div>
                                 </div>
-                            </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
