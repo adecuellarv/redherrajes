@@ -1705,7 +1705,7 @@ header.side-header {
 .menu-area .mobile-nav-toggler {
     position: absolute;
     z-index: 1;
-    right: 60px;
+    right: 10px;
     float: right;
     font-size: 30px;
     cursor: pointer;

@@ -99,11 +99,11 @@
                             <div class="menumb-3">
                                 <div class="menumb-2">
                                     <div class="menumb-1">
-                                        <div class="row">
-                                            <div class="col-6">
+                                        <div style="display:flex;">
+                                            <div class="col-8">
                                                 <img src="<?php bloginfo('template_url'); ?>/img/logo/logo-rh-mb.png" alt="logo-mb" title="logo-mb" />
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-4">
                                                 <div class="mobile-nav-toggler"><i class="fas fa-bars"></i></div>
                                             </div>
                                         </div>

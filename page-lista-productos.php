@@ -131,29 +131,88 @@ if ($pagination) {
 <section class="shop-area pt-100 pb-100">
     <div class="container">
         <div class="row">
+            <?php if (isMobile()) { ?>
+                <div class="div-filters-mobile">
+                    <h2>Filtros</h2>
+                    <label class="close-mobile-flts" onclick="closeFilters()"><i class="fas fa-times"></i></label>
+                    <aside class="shop-sidebar sliderbar-mb-flts" style="margin-top: 20px;">
+                        <div class="widget side-search-bar">
+                            <form action="<?php echo home_url(); ?>/lista-productos">
+                                <input type="text" name="search" value="<?php echo $search_get; ?>">
+                                <button><i class="flaticon-search"></i></button>
+                            </form>
+                        </div>
+                        <div class="widget">
+                            <a href="<?php echo home_url(); ?>/lista-productos">Limpiar filtros</a>
+                        </div>
+                        <div class="widget">
+                            <h4 class="widget-title">Categorías de productos</h4>
+                            <div class="shop-cat-list">
+                                <ul>
+                                    <?php foreach ($categoria as $term) {
+                                        addGetParamToUrl($url, 'category', $term->slug);
+                                        $edit_post_ = addGetParamToUrl($url, 'category', $term->slug); ?>
+                                        <li><a href="<?php echo home_url(); ?>/lista-productos?category=<?php echo $term->slug; ?>"><?php echo $term->name; ?></a><span>(<?php echo $term->count; ?>)</span></li>
+                                    <?php } ?>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="widget has-border">
+                            <div class="sidebar-product-size mb-30">
+                                <h4 class="widget-title">Componentes</h4>
+                                <div class="shop-size-list">
+                                    <ul>
+                                        <?php foreach ($components as $term) {
+                                            $edit_post = addGetParamToUrl($url, 'component', $term->slug); ?>
+                                            <li><a href="<?php echo home_url(); ?>/lista-productos?component=<?php echo $term->slug; ?>"><?php echo $term->name; ?> (<?php echo $term->count; ?>)</a></li>
+                                        <?php } ?>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            <?php } ?>
             <div class="col-xl-9 col-lg-8">
                 <div class="shop-top-meta mb-35">
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="shop-top-left">
-                                <ul>
-                                    <li> <b><?php echo $totalItems; ?></b> Resultados</li>
-                                    <li>Página <?php echo $pagination !="" ? $pagination : 1; ?> de <?php echo $totalPages; ?> </li>
-                                </ul>
-                                <div style="margin-top: 15px;">
+                        <div class="col-md-12">
+                            <?php if (isMobile()) { ?>
+                                <div style="margin-bottom: 25px; text-align:center;">
                                     <a href="https://www.monorama.com.mx/redherrajes/wp-content/themes/redherrajes/descargas/cat_v2_RED_2021.pdf" target="_black">
                                         Descargar catálogo <i class="fas fa-download"></i>
                                     </a>
                                 </div>
+                            <?php } ?>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="shop-top-left">
+                                <ul>
+                                    <?php if (isMobile()) { ?>
+                                        <li><span onclick="openFilters()"><i class="flaticon-menu"></i> Filtros</span></li>
+                                    <?php } ?>
+                                    <li> <b><?php echo $totalItems; ?></b> Resultados</li>
+                                    <li>Página <?php echo $pagination != "" ? $pagination : 1; ?> de <?php echo $totalPages; ?> </li>
+                                </ul>
+                                <?php if (!isMobile()) { ?>
+                                    <div style="margin-top: 15px;">
+                                        <a href="https://www.monorama.com.mx/redherrajes/wp-content/themes/redherrajes/descargas/cat_v2_RED_2021.pdf" target="_black">
+                                            Descargar catálogo <i class="fas fa-download"></i>
+                                        </a>
+                                    </div>
+                                <?php } ?>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="shop-top-right">
                                 <form action="">
-                                    <select name="select">
-                                        <option value="">Ordernar <?php echo $order; ?></option>
-                                        <option onchange="changeOrder(<?php echo addGetParamToUrl($url, 'order', 'ASC'); ?>)"><a href="<?php echo addGetParamToUrl($url, 'order', 'ASC'); ?>">A-Z</a></option>
-                                        <optio onchange="changeOrder(<?php echo addGetParamToUrl($url, 'order', 'ASC'); ?>)"><a href="<?php echo addGetParamToUrl($url, 'order', 'DESC'); ?>">Z-A</a></option>
+                                    <select name="select" id="order">
+                                        <option <?php if ($order == 'ASC') {
+                                                                echo "selected";
+                                                            } ?> value="<?php echo addGetParamToUrl($url, 'order', 'ASC'); ?>"> <a>Ordenar de A-Z </a></option>
+                                        <option <?php if ($order == 'DESC') {
+                                                                echo "selected";
+                                                            } ?> value="<?php echo addGetParamToUrl($url, 'order', 'DESC'); ?>"><a>Ordenar de Z-A</a></option>
                                     </select>
                                 </form>
                             </div>
@@ -239,51 +298,71 @@ if ($pagination) {
                     </ul>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-4">
-                <aside class="shop-sidebar">
-                    <div class="widget side-search-bar">
-                        <form action="<?php echo home_url(); ?>/lista-productos">
-                            <input type="text" name="search" value="<?php echo $search_get; ?>">
-                            <button><i class="flaticon-search"></i></button>
-                        </form>
-                    </div>
-                    <div class="widget">
-                        <a href="<?php echo home_url(); ?>/lista-productos">Limpiar filtros</a>
-                    </div>
-                    <div class="widget">
-                        <h4 class="widget-title">Categorías de productos</h4>
-                        <div class="shop-cat-list">
-                            <ul>
-                                <?php foreach ($categoria as $term) {
-                                    addGetParamToUrl($url, 'category', $term->slug);
-                                    $edit_post_ = addGetParamToUrl($url, 'category', $term->slug); ?>
-                                    <li><a href="<?php echo home_url(); ?>/lista-productos?category=<?php echo $term->slug; ?>"><?php echo $term->name; ?></a><span>(<?php echo $term->count; ?>)</span></li>
-                                <?php } ?>
-                            </ul>
+            <?php if (!isMobile()) { ?>
+                <div class="col-xl-3 col-lg-4">
+                    <aside class="shop-sidebar">
+                        <div class="widget side-search-bar">
+                            <form action="<?php echo home_url(); ?>/lista-productos">
+                                <input type="text" name="search" value="<?php echo $search_get; ?>">
+                                <button><i class="flaticon-search"></i></button>
+                            </form>
                         </div>
-                    </div>
-                    <div class="widget has-border">
-                        <div class="sidebar-product-size mb-30">
-                            <h4 class="widget-title">Componentes</h4>
-                            <div class="shop-size-list">
+                        <div class="widget">
+                            <a href="<?php echo home_url(); ?>/lista-productos">Limpiar filtros</a>
+                        </div>
+                        <div class="widget">
+                            <h4 class="widget-title">Categorías de productos</h4>
+                            <div class="shop-cat-list">
                                 <ul>
-                                    <?php foreach ($components as $term) {
-                                        $edit_post = addGetParamToUrl($url, 'component', $term->slug); ?>
-                                        <li><a href="<?php echo home_url(); ?>/lista-productos?component=<?php echo $term->slug; ?>"><?php echo $term->name; ?> (<?php echo $term->count; ?>)</a></li>
+                                    <?php foreach ($categoria as $term) {
+                                        addGetParamToUrl($url, 'category', $term->slug);
+                                        $edit_post_ = addGetParamToUrl($url, 'category', $term->slug); ?>
+                                        <li><a href="<?php echo home_url(); ?>/lista-productos?category=<?php echo $term->slug; ?>"><?php echo $term->name; ?></a><span>(<?php echo $term->count; ?>)</span></li>
                                     <?php } ?>
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                </aside>
-            </div>
+                        <div class="widget has-border">
+                            <div class="sidebar-product-size mb-30">
+                                <h4 class="widget-title">Componentes</h4>
+                                <div class="shop-size-list">
+                                    <ul>
+                                        <?php foreach ($components as $term) {
+                                            $edit_post = addGetParamToUrl($url, 'component', $term->slug); ?>
+                                            <li><a href="<?php echo home_url(); ?>/lista-productos?component=<?php echo $term->slug; ?>"><?php echo $term->name; ?> (<?php echo $term->count; ?>)</a></li>
+                                        <?php } ?>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            <?php } ?>
         </div>
     </div>
 </section>
 <!-- shop-area-end -->
 <script>
-    const changeOrder = (url) => {
-        window.location.href = url;
-    };
+
 </script>
 <?php get_footer(); ?>
+<script>
+    const openFilters = () => {
+        $(".div-filters-mobile").show();
+    };
+
+    const closeFilters = () => {
+        $(".div-filters-mobile").hide();
+    };
+
+
+    //order
+    $('#order').on('change', function() {
+        //alert(this.value);
+        window.location = this.value;
+    });
+    /*/
+    const changeOrder = (url) => {
+        window.location.href = url;
+    };*/
+</script>
