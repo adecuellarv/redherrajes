@@ -115,54 +115,55 @@ if (!empty($post_components) && !is_wp_error($post_components)) {
                                 //}
                                 ?>
                             </div>
+                            <?php  if (sizeof($caracteristicas['colores']) > 1) { ?>
+                                <div class="sidebar-product-color">
 
-                            <div class="sidebar-product-color">
-                                <h4 class="widget-title">Color</h4>
-                                <div class="">
-                                    <?php
-                                    $hasStock = false;
-                                    $hasShop = false;
-                                    foreach ($caracteristicas['colores'] as &$item) {
-                                        if (!$item['bajo_pedido']) {
-                                            $hasStock = true;
-                                        }
-                                        if ($item['bajo_pedido']) {
-                                            $hasShop = true;
-                                        }
-                                    }
-                                    if ($hasStock) {
-                                    ?>
-                                        <strong>En stock:</strong>
-                                        <ul style="margin-bottom: 15px;">
-                                            <?php foreach ($caracteristicas['colores'] as &$item) {
-                                                if (!$item['bajo_pedido']) { ?>
-                                                    <li style="display: inline-block; margin: 7px;">
-                                                        <div><span><?php echo $item['color']; ?></span></div>
-                                                        <img src="<?php echo $item['imagen']; ?>" alt="img-color" style="width: 45px;" />
-                                                    </li>
-                                            <?php }
+                                    <h4 class="widget-title">Color</h4>
+                                    <div class="">
+                                        <?php
+                                        $hasStock = false;
+                                        $hasShop = false;
+                                        foreach ($caracteristicas['colores'] as &$item) {
+                                            if (!$item['bajo_pedido']) {
+                                                $hasStock = true;
                                             }
-                                            ?>
-                                        </ul>
-                                    <?php }
-                                    if ($hasShop) {
-                                    ?>
-                                        <strong>Bajo pedido:</strong>
-                                        <ul>
-                                            <?php foreach ($caracteristicas['colores'] as &$item) {
-                                                if ($item['bajo_pedido']) { ?>
-                                                    <li style="display: inline-block; margin: 7px;">
-                                                        <div><span><?php echo $item['color']; ?></span></div>
-                                                        <img src="<?php echo $item['imagen']; ?>" alt="img-color" style="width: 45px;" />
-                                                    </li>
-                                            <?php }
+                                            if ($item['bajo_pedido']) {
+                                                $hasShop = true;
                                             }
-                                            ?>
-                                        </ul>
-                                    <?php } ?>
+                                        }
+                                        if ($hasStock) {
+                                        ?>
+                                            <strong>En stock:</strong>
+                                            <ul style="margin-bottom: 15px;">
+                                                <?php foreach ($caracteristicas['colores'] as &$item) {
+                                                    if (!$item['bajo_pedido']) { ?>
+                                                        <li style="display: inline-block; margin: 7px;">
+                                                            <div><span><?php echo $item['color']; ?></span></div>
+                                                            <img src="<?php echo $item['imagen']; ?>" alt="img-color" style="width: 45px;" />
+                                                        </li>
+                                                <?php }
+                                                }
+                                                ?>
+                                            </ul>
+                                        <?php }
+                                        if ($hasShop) {
+                                        ?>
+                                            <strong>Bajo pedido:</strong>
+                                            <ul>
+                                                <?php foreach ($caracteristicas['colores'] as &$item) {
+                                                    if ($item['bajo_pedido']) { ?>
+                                                        <li style="display: inline-block; margin: 7px;">
+                                                            <div><span><?php echo $item['color']; ?></span></div>
+                                                            <img src="<?php echo $item['imagen']; ?>" alt="img-color" style="width: 45px;" />
+                                                        </li>
+                                                <?php }
+                                                }
+                                                ?>
+                                            </ul>
+                                        <?php } ?>
+                                    </div>
                                 </div>
-                            </div>
-
+                            <?php } ?>
                             <?php if ($caracteristicas['aperturas']) {  ?>
                                 <div class="sidebar-product-color" style="margin-top: 35px;">
                                     <h4 class="widget-title">Aperturas</h4>

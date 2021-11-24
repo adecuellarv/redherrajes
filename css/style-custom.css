@@ -1,4 +1,3 @@
-
 .container-menudivs {
   position: relative;
 }
@@ -48,173 +47,194 @@
 .logo-header-sm {
   width: 10%;
 }
-.menu-mobile{
-    display: none;
+.menu-mobile {
+  display: none;
 }
-.menumb-1{
-    background-color: #e6e6e6;
-    padding: 0 5px;
+.menumb-1 {
+  background-color: #e6e6e6;
+  padding: 0 5px;
 }
-.menumb-2{
-    background-color: #b3b4b7;
-    padding-bottom: 20px;
+.menumb-2 {
+  background-color: #b3b4b7;
+  padding-bottom: 20px;
 }
-.menumb-3{
-    background-color: #008cba;
-    padding-bottom: 20px;
+.menumb-3 {
+  background-color: #008cba;
+  padding-bottom: 20px;
 }
-.mobile-nav-toggler{
-    padding-top: 20px !important;
+.mobile-nav-toggler {
+  padding-top: 20px !important;
 }
-.breadcrumb-content{
-    padding-top: 30px;
+.breadcrumb-content {
+  padding-top: 30px;
 }
-.breadcrumb-content h2{
-    text-transform: uppercase;
-    color: #e6e6e6;
+.breadcrumb-content h2 {
+  text-transform: uppercase;
+  color: #e6e6e6;
 }
-.div-mapa-iframe iframe{
-    width: 100% !important;
-    height: 450px !important;
-}
-
-#videoid{
-    width: 100vw; height: 100vh; object-fit: cover; position: fixed; top: 0; left: 0;
+.div-mapa-iframe iframe {
+  width: 100% !important;
+  height: 450px !important;
 }
 
-.components-single{
-    display: block;
-    width: auto;
-    height: auto;
-    line-height: 28px;
-    text-align: center;
-    border: 3px solid #ebebeb;
-    font-size: 14px;
-    color: #544842;
-    font-family: 'Jost', sans-serif;
-    padding: 2px 10px;
+#videoid {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
-.div-filters-mobile{
-    display: none;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    left: 0px;
-    top: 0px;
-    background: #fff;
-    z-index: 1111;
-    padding: 20px;
-}
-.close-mobile-flts{
-    position: absolute;
-    right: 35px;
-    top: 23px;
-    font-size: 31px;
-    color: #000;
+.components-single {
+  display: block;
+  width: auto;
+  height: auto;
+  line-height: 28px;
+  text-align: center;
+  border: 3px solid #ebebeb;
+  font-size: 14px;
+  color: #544842;
+  font-family: 'Jost', sans-serif;
+  padding: 2px 10px;
 }
 
+.div-filters-mobile {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  background: #fff;
+  z-index: 1111;
+  padding: 20px;
+}
+.close-mobile-flts {
+  position: absolute;
+  right: 35px;
+  top: 23px;
+  font-size: 31px;
+  color: #000;
+}
+.capaSendContact {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 11111111;
+  background: rgba(255, 255, 255, 0.65);
+}
+.capaSendMgs {
+  background: rgba(255, 255, 255, 0.96);
+  text-align: center;
+  padding-top: 145px;
+}
+.bgBlack {
+  background: #000;
+}
 /* whatsapp */
-.appWhatsapp{
-	position: fixed;
-	right: 20px;
-	bottom: 91px;
-	width: 60px;
-	z-index: 1000;
+.appWhatsapp {
+  position: fixed;
+  right: 47px;
+  bottom: 91px;
+  width: 60px;
+  z-index: 1000;
 }
-.appWhatsapp img{
-	width: 100%;
-	height: auto;
+.appWhatsapp img {
+  width: 100%;
+  height: auto;
 }
 /* Accordion styles */
 
 .div-faqs input {
-    position: absolute;
-    opacity: 0;
-    z-index: -1;
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
 }
-.div-faqs label{
-    color: #e6e6e6 !important;
+.div-faqs label {
+  color: #e6e6e6 !important;
 }
 .tabs {
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
 }
 .tab {
-    width: 100%;
-    color: white;
-    overflow: hidden;
+  width: 100%;
+  color: white;
+  overflow: hidden;
 }
 .tab-label {
-    display: flex;
-    justify-content: space-between;
-    padding: 1em;
-    background: #008cba;
-    font-weight: bold;
-    cursor: pointer;
-   /* Icon */
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  background: #008cba;
+  font-weight: bold;
+  cursor: pointer;
+  /* Icon */
 }
 .tab-label:hover {
-    background: #008cba;
+  background: #008cba;
 }
 .tab-label::after {
-    content: "\276F";
-    width: 1em;
-    height: 1em;
-    text-align: center;
-    transition: all 0.35s;
+  content: '\276F';
+  width: 1em;
+  height: 1em;
+  text-align: center;
+  transition: all 0.35s;
 }
 .tab-content {
-    max-height: 0;
-    padding: 0 1em;
-    color: #2c3e50;
-    background: white;
-    transition: all 0.35s;
+  max-height: 0;
+  padding: 0 1em;
+  color: #2c3e50;
+  background: white;
+  transition: all 0.35s;
 }
 .tab-close {
-    display: flex;
-    justify-content: flex-end;
-    padding: 1em;
-    font-size: 0.75em;
-    background: #2c3e50;
-    cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1em;
+  font-size: 0.75em;
+  background: #2c3e50;
+  cursor: pointer;
 }
 .tab-close:hover {
-    background: #1a252f;
+  background: #1a252f;
 }
 input:checked + .tab-label {
-    background: #008cba;
+  background: #008cba;
 }
 input:checked + .tab-label::after {
-    transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 input:checked ~ .tab-content {
-    max-height: 100vh;
-    padding: 1em;
+  max-height: 100vh;
+  padding: 1em;
 }
-.sliderbar-mb-flts{
-    overflow-y: scroll;
+.sliderbar-mb-flts {
+  overflow-y: scroll;
 }
 @media only screen and (max-height: 911px) {
-    .sliderbar-mb-flts{
-        height: 700px;
-    }
+  .sliderbar-mb-flts {
+    height: 700px;
+  }
 }
 @media only screen and (max-height: 711px) {
-    .sliderbar-mb-flts{
-        height: 500px;
-    }
+  .sliderbar-mb-flts {
+    height: 500px;
+  }
 }
 @media only screen and (max-height: 511px) {
-    .sliderbar-mb-flts{
-        height:200px;
-    }
+  .sliderbar-mb-flts {
+    height: 200px;
+  }
 }
 
-
 @media only screen and (max-width: 711px) {
-    /*
+  /*
     #videoid{
         position: absolute;
         bottom: 0px;

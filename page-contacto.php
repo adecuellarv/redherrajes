@@ -35,19 +35,21 @@ $informacion = get_field('informacion', $post->ID);
                             <h2 class="title">Escribe un mensaje</h2>
                         </div>
                         <div class="contact-form">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <input type="text" placeholder="Nombre *">
+                            <form id="form-contact">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="text" placeholder="Nombre *"  name="nombre" id="nameC">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="email" placeholder="Email *"  name="email" id="emailC">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" placeholder="Teléfono"  name="tel" id="telC">
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <input type="email" placeholder="Email *">
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="text" placeholder="Teléfono">
-                                </div>
-                            </div>
-                            <textarea name="message" placeholder="Mensaje"></textarea>
-                            <button class="btn">Enviar</button>
+                                <textarea  name="msg" placeholder="Mensaje"></textarea>
+                                <button class="btn" id="sendformC">Enviar</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -89,6 +91,7 @@ $informacion = get_field('informacion', $post->ID);
                 </div>
             </div>
         </div>
+        <div class="capaSendContact"></div>
     </section>
 
     <div class="div-mapa-iframe">
@@ -97,3 +100,70 @@ $informacion = get_field('informacion', $post->ID);
 
 </main>
 <?php get_footer(); ?>
+
+<script>
+    $('#sendformC').click(function() {
+        event.preventDefault();
+        let values = $("#form-contact").serialize();
+        var urlRn = "https://www.monorama.com.mx/redherrajes/post.php";
+        let n = false;
+        let e = false;
+        let t = false;
+
+        if ($('#nameC').val() == "") {
+            $('#nameC').addClass('animated shake');
+            setTimeout(function() {
+                $('#nameC').removeClass('animated shake');
+            }, 700);
+        } else {
+            n = true;
+        }
+        if ($('#emailC').val() == "") {
+            $('#emailC').addClass('animated shake');
+            setTimeout(function() {
+                $('#emailC').removeClass('animated shake');
+            }, 700);
+        } else {
+            e = true;
+        }
+        if ($('#telC').val() == "") {
+            $('#telC').addClass('animated shake');
+            setTimeout(function() {
+                $('#telC').removeClass('animated shake');
+            }, 700);
+        } else {
+            t = true;
+        }
+        if (n && e && t) {
+
+            $.ajax({
+                type: 'POST',
+                url: '' + urlRn + '',
+                data: values,
+                beforeSend: function() {
+                    $('.capaSendContact').fadeIn(300);
+                },
+                success: function(resp) {
+                    $('.capaSendContact').addClass('capaSendMgs');
+                    $('.capaSendMgs').html('<h3><b>Gracias</b>,<br><br>hemos recibido tus datos.');
+
+                    setTimeout(function() {
+                        location.reload();
+                    }, 900);
+
+                },
+                error: function() {
+
+                    $('.capaSendContact').addClass('capaSendMgs');
+                    $('.capaSendMgs').html('<h3>Tuvimos problemas al enviar tu mensaje,<br> favor de intentarlo nuevamente<br><br><b>Correo: ventas@reddeherrajes.mx</b></h3><br>');
+
+                    setTimeout(function() {
+                        $('.capaSendMgs').html('');
+                        $('.capaSendContact').removeClass('capaSendMgs');
+                        $('.capaSendContact').hide();
+                    }, 5000);
+                }
+            });
+        }
+    });
+</script>

@@ -868,6 +868,9 @@
   .menu-mobile{
       display: block !important;
   }
+  .appWhatsapp{
+    right: 21px;
+  }
 }
 
 /* Medium devices (tablets, 768px and up) */
