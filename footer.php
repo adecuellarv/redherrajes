@@ -16,8 +16,7 @@
                             <div class="footer-link-wrap">
                                 <nav class="menu-links">
                                     <ul>
-                                        <li><a href="<?php echo home_url(); ?>/terminos-y-condiciones">Terminos y condiciones</a></li>
-                                        <li><a href="<?php echo home_url(); ?>/politica-privacidad">Politicas de privaciodad</a></li>
+                                        <li><a href="<?php echo home_url(); ?>/politica-privacidad">Aviso de Confidencialidad</a></li>
                                     </ul>
                                 </nav>
                                 <div class="footer-social">

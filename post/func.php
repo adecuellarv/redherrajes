@@ -1,7 +1,7 @@
 <?php
     
 	function getdatos($name,$email,$asunto,$description){
-        $email_contact = 'ade.cuellar91@gmail.com';
+        $email_contact = 'ventas@reddeherrajes.mx';
 		if($email!=""){
 			$emailR = $email;
 		}else{
@@ -72,7 +72,7 @@
 		$mail_sent = @mail($para, $subject, $message, $headers );
 	}
 	function thanksuser($name,$email){
-        $email_contact = 'ade.cuellar91@gmail.com';
+        $email_contact = 'ventas@reddeherrajes.mx';
 		ini_set("SMTP","smtp.gmail.com");  
 		ini_set("smtp_port","465");  
 		ini_set("sendmail_from", $email_contact);
