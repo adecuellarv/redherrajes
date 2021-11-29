@@ -32,7 +32,7 @@ $cotizacion = get_field('cotizacion', $post->ID);
                             </div>
                             <div class="col-lg-6">
                                 <div class="h7-slider-content">
-                                    <span class="sub-title" data-animation-in="fadeInUp" data-delay-in=".4" data-duration-in="1.5"><?php echo $item['elementos']['tag']; ?></span>
+                                    <span class="sub-title" data-animation-in="fadeInUp" data-delay-in=".4" data-duration-in="1.5" style="margin-top: 60px;"><?php echo $item['elementos']['tag']; ?></span>
                                     <h2 class="title" data-animation-in="fadeInUp" data-delay-in=".6" data-duration-in="1.5"><?php echo $item['elementos']['titulo']; ?></h2>
                                     <p data-animation-in="fadeInUp" data-delay-in=".8" data-duration-in="1.5"><?php echo $item['elementos']['descripcion']; ?></p>
                                     <a href="<?php echo $item['elementos']['link']; ?>" class="btn" data-animation-in="fadeInUp" data-delay-in="1.2" data-duration-in="1.5">Ver más</a>
