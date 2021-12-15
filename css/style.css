@@ -4941,6 +4941,8 @@ header.side-header {
 }
 .new-arrival-item .thumb img {
     max-width: 100%;
+    object-fit: cover;
+    height: 200px;
 }
 .new-arrival-item .thumb > a {
     display: block;
